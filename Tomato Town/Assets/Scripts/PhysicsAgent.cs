@@ -43,7 +43,7 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameObserver
     }
 
     // Move the entity's position and check for collision
-    protected void Move(Vector2 movement) {
+    public void Move(Vector2 movement) {
         isGrounded = false;
         Vector2 moveAlongGround = new Vector2(groundNormal.y,-groundNormal.x);
         moveAlongGround = moveAlongGround.normalized;
@@ -80,7 +80,7 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameObserver
     }
 
     // Apply gravity to the entity
-    protected void ApplyGravity(float gravity, bool decelX = true) {
+    public void ApplyGravity(float gravity, bool decelX = true) {
         velocity.y -= gravity * Time.deltaTime;
         if(maxFallSpeed > 0 && velocity.y < 0) velocity.y = Mathf.Max(velocity.y,-maxFallSpeed);
 
