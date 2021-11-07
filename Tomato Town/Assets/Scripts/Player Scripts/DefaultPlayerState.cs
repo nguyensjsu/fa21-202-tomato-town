@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultPlayerState : MonoBehaviour, IAgentState
+public class DefaultPlayerState : IAgentState
 {
     Player player;
     PlayerData data => player.data;
@@ -21,7 +21,6 @@ public class DefaultPlayerState : MonoBehaviour, IAgentState
         if(player.m_attack) {
             player.attackState.SetAttack(data.basic);
             player.SetState(player.attackState);
-            //BeginAttack(basicData.attack);
         }
     }
 

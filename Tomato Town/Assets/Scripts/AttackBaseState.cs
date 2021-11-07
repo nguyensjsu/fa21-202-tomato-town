@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AttackBaseState : MonoBehaviour, IAgentState
+public abstract class AttackBaseState : IAgentState
 {
     protected readonly Timer atkTimer = new Timer();
     protected BaseAgent user;
@@ -28,7 +28,6 @@ public abstract class AttackBaseState : MonoBehaviour, IAgentState
     public void ExitState() {
         atkTimer.ResetTimer();
         user._animator.SetTrigger("endAttack");
-        print("exit");
     }
 
 

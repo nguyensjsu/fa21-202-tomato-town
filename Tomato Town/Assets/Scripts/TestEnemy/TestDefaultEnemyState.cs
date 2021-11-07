@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestDefaultEnemyState : MonoBehaviour, IAgentState
+public class TestDefaultEnemyState : IAgentState
 {
     EnemyAgent user;
 
