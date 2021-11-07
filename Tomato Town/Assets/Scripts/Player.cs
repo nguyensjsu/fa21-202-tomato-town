@@ -17,6 +17,7 @@ public class Player : BaseAgent
         SetState(defaultState);
     }
 
+    #region REMOVE ME LATER
     private void Update() {
         UpdateObserver();
     }
@@ -24,10 +25,50 @@ public class Player : BaseAgent
     private void FixedUpdate() {
         FixedUpdateObserver();
     }
+    #endregion
 
     public override void UpdateObserver() {
+        base.UpdateObserver();
         CheckInputs();
     }
+
+    #region Movement Functions
+
+    public void HorizontalMovement(float speed,bool flip) {
+        if(!m_isMoving) return;
+        var dir = (int)Mathf.Sign(m_moveInput.x);
+        if(flip) FaceDirection(dir);
+        Move(Vector2.right * (dir * speed * Time.deltaTime));
+    }
+
+    // Handles the player's air movement
+    protected bool endFloat;
+    protected float jumpChance;
+    private Timer jumpTimer = new Timer();
+    protected float coyoteTime => Time.time - jumpChance;
+
+    // Initiate jump
+    public void Jump(float jumpHeight,float airSpeed) {
+        jumpChance = 0;
+        endFloat = false;
+        isGrounded = false;
+        jumpTimer.ResetTimer();
+        velocity.y = Mathf.Abs(jumpHeight);
+        if(Mathf.Abs(velocity.x) < Mathf.Epsilon) return;
+        velocity.x = Mathf.Sign(velocity.x) * airSpeed;
+    }
+
+    // Determines how long the player can continue rising in their jump
+    public void HandleJumpFloat() {
+        if(!m_jumpHold && velocity.y > 0)
+            velocity.y *= 0.5f;
+
+        if(endFloat) return;
+        if(m_jumpHold) velocity.y = Mathf.Abs(data.jumpForce);
+        endFloat = !m_jumpHold || jumpTimer.WaitForXFrames(data.jumpHold);
+    }
+
+    #endregion
 
     #region Inputs
 

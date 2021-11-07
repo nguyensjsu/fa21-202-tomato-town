@@ -14,29 +14,22 @@ public class DefaultPlayerState : MonoBehaviour, IAgentState
     public void InitializeState() { }
 
     public void UpdateState() {
-        print("poop");
+        if(player.grounded && player.m_jumpPress) {
+            player.Jump(data.jumpForce,data.airSpeed);
+        }
     }
 
     public void FixedUpdateState() {
         if(player.grounded) {
-            Movement(data.walkSpeed,true);
+            player.HorizontalMovement(data.walkSpeed, true);
         } else {
-            Movement(data.airSpeed,false);
-            //HandleJumpFloat();
+            player.HorizontalMovement(data.airSpeed, false);
+            player.HandleJumpFloat();
         }
         player.ApplyGravity(data.gravity);
     }
 
     public void ExitState() { }
 
-    #region Helper Functions
-
-    protected void Movement(float speed, bool flip) {
-        if(!player.m_isMoving) return;
-        var dir = (int)Mathf.Sign(player.m_moveInput.x);
-        if(flip) player.FaceDirection(dir);
-        player.Move(Vector2.right * (dir * speed * Time.deltaTime));
-    }
-
-    #endregion
+    
 }
