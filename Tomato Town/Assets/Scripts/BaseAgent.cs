@@ -15,7 +15,10 @@ public abstract class BaseAgent : PhysicsAgent
     public override void FixedUpdateComponent() { state.FixedUpdateState(); }
     public void SetState(IAgentState state) { 
         this.prevState = this.state; 
-        this.state = state; 
+        this.state = state;
+        
+        if(prevState != null) prevState.ExitState();
+        this.state.InitializeState();
     }
     public void RevertState() { SetState(this.prevState); }
 

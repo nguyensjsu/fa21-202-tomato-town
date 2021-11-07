@@ -6,12 +6,18 @@ public class GameManager : MonoBehaviour, IGameComponent
 {
     private List<IGameComponent> components = new List<IGameComponent>();
     private static GameManager _instance;
+    
     public static GameManager gameInstance { get { return _instance; } }
+    public BaseAgent playerAgent;
+    public List<BaseAgent> enemyAgents = new List<BaseAgent>();
+
 
     private void Awake() {
         if(_instance != null && _instance != this) 
             Destroy(gameObject);
         else { _instance = this; }
+
+        playerAgent = FindObjectOfType<Player>();
     }
 
     private void Update() {
@@ -40,4 +46,13 @@ public class GameManager : MonoBehaviour, IGameComponent
         if(components.Contains(c)) components.Remove(c);
     }
 
+    public void AddEnemy(EnemyAgent b) {
+        AddChild(b);
+        if(!enemyAgents.Contains(b)) enemyAgents.Add(b);
+    }
+
+    public void RemoveEnemy(EnemyAgent b) {
+        RemoveChild(b);
+        if(enemyAgents.Contains(b)) enemyAgents.Remove(b);
+    }
 }

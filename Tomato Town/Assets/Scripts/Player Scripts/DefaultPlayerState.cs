@@ -17,6 +17,12 @@ public class DefaultPlayerState : MonoBehaviour, IAgentState
         if(player.grounded && player.m_jumpPress) {
             player.Jump(data.jumpForce,data.airSpeed);
         }
+
+        if(player.m_attack) {
+            player.attackState.SetAttack(data.basic);
+            player.SetState(player.attackState);
+            //BeginAttack(basicData.attack);
+        }
     }
 
     public void FixedUpdateState() {

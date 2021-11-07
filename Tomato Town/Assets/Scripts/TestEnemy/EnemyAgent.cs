@@ -20,6 +20,8 @@ public abstract class EnemyAgent : BaseAgent
         shift.x = (offset + size * 0.5f).x;
         shift.y = (offset - size * 0.5f).y;
         shift *= transform.localScale;
+
+        GameManager.gameInstance.AddEnemy(this);
     }
 
     #region Movement Functions

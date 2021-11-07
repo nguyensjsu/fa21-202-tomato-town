@@ -16,7 +16,7 @@ public abstract class AttackBaseState : MonoBehaviour, IAgentState
         user = b;
     }
 
-    protected void SetAttack(Attack desiredAttack) { curAttack = desiredAttack; }
+    public void SetAttack(Attack desiredAttack) { curAttack = desiredAttack; }
 
     public void InitializeState() {
         hitList.Clear();
@@ -26,9 +26,9 @@ public abstract class AttackBaseState : MonoBehaviour, IAgentState
     }
 
     public void ExitState() {
-        user.RevertState();
         atkTimer.ResetTimer();
         user._animator.SetTrigger("endAttack");
+        print("exit");
     }
 
 
@@ -60,17 +60,6 @@ public abstract class AttackBaseState : MonoBehaviour, IAgentState
         return hasHitTarget;
     }
 
-    // TODO: REMOVE FUNCTION
-    private void DrawHitbox(Hitbox[] userHit,GameObject user) {
-        float userScale = user.transform.localScale.x;
-        Vector2 userPos = user.transform.position;
-        var userFlip = (int)Mathf.Sign(userScale);
-        for(int i = 0; i < userHit.Length && !hasHitTarget; i++) {
-            userHit[i].UpdateBox(userPos,userFlip);
-            userHit[i].DrawBox(Color.red);
-        }
-    }
-
     // Check to see of the current attack's hitbox overlapped with a target
     private bool hasHitTarget;
     private HashSet<BaseAgent> hitList = new HashSet<BaseAgent>();
@@ -78,12 +67,12 @@ public abstract class AttackBaseState : MonoBehaviour, IAgentState
         if(advanceTime) atkTimer.AdvanceTime();
 
         // See if the move has ended
-        if(atkTimer.CurrentFrame() >= curAttack.GetTotalFrames()) { ExitState(); return; }
+        if(atkTimer.CurrentFrame() >= curAttack.GetTotalFrames()) { user.RevertState(); return; }
 
         // Check if the move connected during its active frames
         else if(curAttack.IsActive(atkTimer.CurrentFrame()) && !hitList.Contains(target)) {
             // Setup knockback and pushback data
-            Vector2 userDir = new Vector2(Mathf.Sign(transform.localScale.x),1);
+            Vector2 userDir = new Vector2(Mathf.Sign(user.transform.localScale.x),1);
 
             // Check if attack connected with any target if it has a hitbox
             if(IsHitTarget(curAttack.hitboxes,user.gameObject,target.hurtbox,target.gameObject)) {
@@ -105,11 +94,22 @@ public abstract class AttackBaseState : MonoBehaviour, IAgentState
 
     protected void Attack(List<BaseAgent> targets) {
         // End the attack if it's done
-        if(atkTimer.WaitForXFrames(curAttack.GetTotalFrames())) { ExitState(); return; }
+        if(atkTimer.WaitForXFrames(curAttack.GetTotalFrames())) { user.RevertState(); return; }
 
-        DrawHitbox(curAttack.hitboxes,gameObject);
+        DrawHitbox(curAttack.hitboxes,user.gameObject);
 
         // Otherwise attack each enemy
         for(int i = 0; i < targets.Count; i++) { Attack(targets[i],false); }
+    }
+
+    // TODO: REMOVE FUNCTION
+    private void DrawHitbox(Hitbox[] userHit,GameObject user) {
+        float userScale = user.transform.localScale.x;
+        Vector2 userPos = user.transform.position;
+        var userFlip = (int)Mathf.Sign(userScale);
+        for(int i = 0; i < userHit.Length && !hasHitTarget; i++) {
+            userHit[i].UpdateBox(userPos,userFlip);
+            userHit[i].DrawBox(Color.red);
+        }
     }
 }

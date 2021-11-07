@@ -10,6 +10,5 @@ public class TestDummy : EnemyAgent
         base.Start();
         defaultState = new TestDefaultEnemyState(this);
         SetState(defaultState);
-        GameManager.gameInstance.AddChild(this);
     }
 }

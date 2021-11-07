@@ -9,13 +9,16 @@ public class Player : BaseAgent
     public PlayerData data;
 
     public IAgentState defaultState;
+    public AttackBaseState attackState;
     
     // Start is called before the first frame update
     new void Start() {
         base.Start();
-        defaultState = new DefaultPlayerState(this);
-        SetState(defaultState);
         GameManager.gameInstance.AddChild(this);
+
+        defaultState = new DefaultPlayerState(this);
+        attackState = new PlayerAttackState(this,data.basic);
+        SetState(defaultState);
     }
 
     public override void UpdateComponent() {

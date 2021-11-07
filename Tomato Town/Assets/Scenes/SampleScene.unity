@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a806187c376c374bb508da4d8d6fc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAgent: {fileID: 0}
+  enemyAgents: []
 --- !u!4 &269647462
 Transform:
   m_ObjectHideFlags: 0
@@ -356,6 +358,7 @@ GameObject:
   - component: {fileID: 1050475133}
   - component: {fileID: 1050475132}
   - component: {fileID: 1050475131}
+  - component: {fileID: 1050475137}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -401,7 +404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a504e6a768a0e74a940168f13103564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0}
+  originalScale: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 60781fcb8df64a742bbc82c9ef0c3bba, type: 2}
+  attackState: {fileID: 0}
 --- !u!50 &1050475133
 Rigidbody2D:
   serializedVersion: 4
@@ -494,12 +500,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050475130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.29, y: 10.37, z: 0}
+  m_LocalPosition: {x: 5.44, y: 10.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1050475137
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050475130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1074551310
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2719e21015053499c1c7f5015057c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0}
+  originalScale: {x: 0, y: 0}
 --- !u!1 &2088650145
 GameObject:
   m_ObjectHideFlags: 0

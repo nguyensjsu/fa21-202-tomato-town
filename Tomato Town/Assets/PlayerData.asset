@@ -18,5 +18,15 @@ MonoBehaviour:
   jumpForce: 20
   maxFallSpeed: 20
   jumpHold: 0
-  jumpReleaseVel: 0
-  dashHold: 0
+  basic:
+    animationTrigger: 
+    hitboxes:
+    - pos1: {x: 1, y: 0}
+      pos2: {x: 0, y: 1}
+    startup: 0
+    linger: 15
+    endlag: 30
+    power: 1
+    mpCost: 0
+    knockback: {x: 0, y: 0}
+    pushback: {x: 0, y: 0}
