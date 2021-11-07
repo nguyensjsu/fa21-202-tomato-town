@@ -20,11 +20,11 @@ public abstract class BaseAgent : PhysicsAgent
         this.state = state;
     }
 
-    public override void FixedUpdateObserver() {
+    public override void FixedUpdateComponent() {
         state.FixedUpdateState();
     }
 
-    public override void UpdateObserver() {
+    public override void UpdateComponent() {
         state.UpdateState();
     }
 

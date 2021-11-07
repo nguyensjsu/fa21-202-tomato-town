@@ -19,16 +19,16 @@ public class Player : BaseAgent
 
     #region REMOVE ME LATER
     private void Update() {
-        UpdateObserver();
+        UpdateComponent();
     }
 
     private void FixedUpdate() {
-        FixedUpdateObserver();
+        FixedUpdateComponent();
     }
     #endregion
 
-    public override void UpdateObserver() {
-        base.UpdateObserver();
+    public override void UpdateComponent() {
+        base.UpdateComponent();
         CheckInputs();
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class PhysicsAgent : MonoBehaviour, IGameObserver
+public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
 {
     protected int layerMask;
     protected Rigidbody2D rb;
@@ -18,8 +18,9 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameObserver
     private const float collisionTolerance = 0.01f;
     private Vector2 groundNormal;
 
-    public abstract void UpdateObserver();
-    public abstract void FixedUpdateObserver();
+    public abstract void UpdateComponent();
+    public abstract void FixedUpdateComponent();
+
 
     private void OnEnable() {
         rb = GetComponent<Rigidbody2D>();
@@ -100,4 +101,7 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameObserver
         rb.position = newPosition;
     }
 
+    public void AddChild(IGameComponent c) { }
+
+    public void RemoveChild(IGameComponent c) { }
 }
