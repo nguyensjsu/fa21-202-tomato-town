@@ -5,8 +5,20 @@ using UnityEngine;
 public abstract class BaseAgent : PhysicsAgent
 {
     protected IAgentState state { get; private set; }
-    protected Animator _animator;
-    protected Vector2 originalScale;
+    protected IAgentState prevState { get; private set; }
+    
+    public Vector2 originalScale;
+    public Hitbox hurtbox { get; private set; }
+    public Animator _animator { get; private set; }
+
+    public override void UpdateComponent() { state.UpdateState(); }
+    public override void FixedUpdateComponent() { state.FixedUpdateState(); }
+    public void SetState(IAgentState state) { 
+        this.prevState = this.state; 
+        this.state = state; 
+    }
+    public void RevertState() { SetState(this.prevState); }
+
 
     protected void Start() {
         _animator = GetComponent<Animator>();
@@ -14,18 +26,11 @@ public abstract class BaseAgent : PhysicsAgent
 
         originalScale = transform.localScale;
         originalScale.x = Mathf.Abs(originalScale.x);
+        hurtbox = new Hitbox(box, originalScale);
     }
 
-    public void SetState(IAgentState state) {
-        this.state = state;
-    }
-
-    public override void FixedUpdateComponent() {
-        state.FixedUpdateState();
-    }
-
-    public override void UpdateComponent() {
-        state.UpdateState();
+    public void Attacked(Vector2 knockback) {
+        print("ouch");
     }
 
     // Make agent face a given direction

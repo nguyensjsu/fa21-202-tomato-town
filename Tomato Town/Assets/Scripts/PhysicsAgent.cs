@@ -5,10 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
 {
+    public Vector2 velocity;
     protected int layerMask;
     protected Rigidbody2D rb;
     protected BoxCollider2D box;
-    protected Vector2 velocity;
     protected bool isGrounded;
     protected float maxFallSpeed = -1;
 
