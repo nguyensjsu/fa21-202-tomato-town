@@ -15,17 +15,8 @@ public class Player : BaseAgent
         base.Start();
         defaultState = new DefaultPlayerState(this);
         SetState(defaultState);
+        GameManager.gameInstance.AddChild(this);
     }
-
-    #region REMOVE ME LATER
-    private void Update() {
-        UpdateComponent();
-    }
-
-    private void FixedUpdate() {
-        FixedUpdateComponent();
-    }
-    #endregion
 
     public override void UpdateComponent() {
         base.UpdateComponent();
