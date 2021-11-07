@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInput))]
 public class Player : BaseAgent
 {
     public bool grounded => isGrounded;
@@ -40,12 +41,10 @@ public class Player : BaseAgent
     public bool m_downDirection => m_moveInput.y <= -0.6f;
 
     private void CheckInputs() {
-        /*
         m_moveInput = PlayerInput.moveInput;
         m_attack = PlayerInput.confirm.isPressed;
         m_jumpHold = PlayerInput.jump.isHeld;
         m_jumpPress = PlayerInput.jump.isPressed;
-        */
     }
 
     #endregion
