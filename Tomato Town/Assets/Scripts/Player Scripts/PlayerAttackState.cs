@@ -23,7 +23,7 @@ public class PlayerAttackState : AttackBaseState
         }
         else if(!player.grounded && player.hasBooster) {
             if(player.m_jumpPress) {
-                player.Jump(data.jumpForce,data.airSpeed);
+                player.Jump(data.flutterForce,data.airSpeed,false);
                 player.hasBooster = false;
             }
         }
