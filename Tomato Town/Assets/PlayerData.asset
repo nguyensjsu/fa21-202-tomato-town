@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a26ce811e46bd4aa9ba6e3b207db6d, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  walkSpeed: 10
-  airSpeed: 10
+  walkSpeed: 7
+  airSpeed: 7
   gravity: 50.5
   jumpForce: 20
   maxFallSpeed: 20
@@ -21,7 +21,7 @@ MonoBehaviour:
   basic:
     animationTrigger: 
     hitboxes:
-    - pos1: {x: 1, y: 0}
+    - pos1: {x: 2, y: -1}
       pos2: {x: 0, y: 1}
     startup: 0
     linger: 15
@@ -29,12 +29,12 @@ MonoBehaviour:
     power: 1
     mpCost: 0
     knockback: {x: 0, y: 0}
-    pushback: {x: 0, y: 0}
+    pushback: {x: -15, y: 0}
   downAttack:
     animationTrigger: 
     hitboxes:
-    - pos1: {x: 1, y: -4}
-      pos2: {x: -1, y: 0}
+    - pos1: {x: 0.5, y: -2}
+      pos2: {x: -0.5, y: 0}
     startup: 0
     linger: 0
     endlag: 30
@@ -42,3 +42,4 @@ MonoBehaviour:
     mpCost: 0
     knockback: {x: 0, y: 0}
     pushback: {x: 0, y: 15}
+  flutterForce: 15

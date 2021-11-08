@@ -38,7 +38,7 @@ public class DefaultPlayerState : IAgentState
         if(player.grounded) {
             player.HorizontalMovement(data.walkSpeed, true);
         } else {
-            player.HorizontalMovement(data.airSpeed, false);
+            player.HorizontalMovement(data.airSpeed, true);
             player.HandleJumpFloat();
         }
         player.ApplyGravity(data.gravity);

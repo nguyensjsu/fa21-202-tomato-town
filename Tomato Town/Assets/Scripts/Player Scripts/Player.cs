@@ -34,7 +34,8 @@ public class Player : BaseAgent
         if(!m_isMoving) return;
         var dir = (int)Mathf.Sign(m_moveInput.x);
         if(flip) FaceDirection(dir);
-        Move(Vector2.right * (dir * speed * Time.deltaTime));
+        var dir2 = m_moveInput.x;
+        Move(Vector2.right * (dir2 * speed * Time.deltaTime));
     }
 
     // Handles the player's air movement
@@ -60,16 +61,8 @@ public class Player : BaseAgent
 
         if(m_jumpHold) velocity.y = Mathf.Max(velocity.y, Mathf.Abs(data.jumpForce));
         endFloat = !m_jumpHold || jumpTimer.WaitForXFrames(data.jumpHold);
-        if(endFloat || (!m_jumpHold && velocity.y > 0)) {
-            //if(velocity.y < data.jumpForce) 
-                velocity.y *= 0.5f;
-        }
+        if(endFloat || (!m_jumpHold && velocity.y > 0)) { velocity.y *= 0.5f; }
     }
-
-    /*
-     * 1) if player release during a jump, cut it off
-     * 2) 
-     */
 
     #endregion
 
