@@ -62,7 +62,6 @@ public class Hitbox
     public bool CheckHitX(Hitbox h) { return !(GetXMax() < h.GetXMin() || GetXMin() > h.GetXMax()); }
     public bool CheckHitY(Hitbox h) { return !(GetYMax() < h.GetYMin() || GetYMin() > h.GetYMax()); }
     public bool CheckHit(Hitbox h) {
-        DrawBox(Color.green); h.DrawBox(Color.red);
         return CheckHitX(h) && CheckHitY(h);
     }
 

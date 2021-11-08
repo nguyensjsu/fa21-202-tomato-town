@@ -80,6 +80,7 @@ public abstract class AttackBaseState : IAgentState
                     Vector2 push = curAttack.pushback * userDir;
                     if(push.x != 0) user.velocity.x = push.x;
                     if(push.y != 0) user.velocity.y = push.y;
+                    //Debug.Log(user.velocity);
                 }
 
                 hasHitTarget = true;
@@ -102,11 +103,11 @@ public abstract class AttackBaseState : IAgentState
     }
 
     // TODO: REMOVE FUNCTION
-    private void DrawHitbox(Hitbox[] userHit,GameObject user) {
+    protected void DrawHitbox(Hitbox[] userHit,GameObject user) {
         float userScale = user.transform.localScale.x;
         Vector2 userPos = user.transform.position;
         var userFlip = (int)Mathf.Sign(userScale);
-        for(int i = 0; i < userHit.Length && !hasHitTarget; i++) {
+        for(int i = 0; i < userHit.Length; i++) {
             userHit[i].UpdateBox(userPos,userFlip);
             userHit[i].DrawBox(Color.red);
         }

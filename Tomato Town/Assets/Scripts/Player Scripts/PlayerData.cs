@@ -9,5 +9,5 @@ public class PlayerData : ScriptableObject
     public float gravity, jumpForce, maxFallSpeed;
     public int jumpHold;
 
-    public Attack basic;
+    public Attack basic, downAttack;
 }

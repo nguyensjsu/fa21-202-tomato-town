@@ -10,6 +10,8 @@ public class Player : BaseAgent
 
     public IAgentState defaultState;
     public AttackBaseState attackState;
+
+    public bool hasBooster;
     
     // Start is called before the first frame update
     new void Start() {
@@ -36,16 +38,16 @@ public class Player : BaseAgent
     }
 
     // Handles the player's air movement
-    protected bool endFloat;
+    public bool endFloat;
     protected float jumpChance;
     private Timer jumpTimer = new Timer();
     protected float coyoteTime => Time.time - jumpChance;
 
     // Initiate jump
-    public void Jump(float jumpHeight,float airSpeed) {
+    public void Jump(float jumpHeight,float airSpeed,bool resetFloat = true) {
         jumpChance = 0;
-        endFloat = false;
         isGrounded = false;
+        endFloat = !resetFloat;
         jumpTimer.ResetTimer();
         velocity.y = Mathf.Abs(jumpHeight);
         if(Mathf.Abs(velocity.x) < Mathf.Epsilon) return;
@@ -54,13 +56,20 @@ public class Player : BaseAgent
 
     // Determines how long the player can continue rising in their jump
     public void HandleJumpFloat() {
-        if(!m_jumpHold && velocity.y > 0)
-            velocity.y *= 0.5f;
-
         if(endFloat) return;
-        if(m_jumpHold) velocity.y = Mathf.Abs(data.jumpForce);
+
+        if(m_jumpHold) velocity.y = Mathf.Max(velocity.y, Mathf.Abs(data.jumpForce));
         endFloat = !m_jumpHold || jumpTimer.WaitForXFrames(data.jumpHold);
+        if(endFloat || (!m_jumpHold && velocity.y > 0)) {
+            //if(velocity.y < data.jumpForce) 
+                velocity.y *= 0.5f;
+        }
     }
+
+    /*
+     * 1) if player release during a jump, cut it off
+     * 2) 
+     */
 
     #endregion
 

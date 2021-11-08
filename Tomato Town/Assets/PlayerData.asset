@@ -17,7 +17,7 @@ MonoBehaviour:
   gravity: 50.5
   jumpForce: 20
   maxFallSpeed: 20
-  jumpHold: 0
+  jumpHold: 10
   basic:
     animationTrigger: 
     hitboxes:
@@ -30,3 +30,15 @@ MonoBehaviour:
     mpCost: 0
     knockback: {x: 0, y: 0}
     pushback: {x: 0, y: 0}
+  downAttack:
+    animationTrigger: 
+    hitboxes:
+    - pos1: {x: 1, y: -4}
+      pos2: {x: -1, y: 0}
+    startup: 0
+    linger: 0
+    endlag: 30
+    power: 0
+    mpCost: 0
+    knockback: {x: 0, y: 0}
+    pushback: {x: 0, y: 15}
