@@ -8,3 +8,6 @@ I plan to work on making the sound manager for the game's sfx.
 
 3) What tasks are blocked waiting on another team member?<br>
 No tasks are blocked at the moment.
+
+4) Feedback XP Core Value<br>
+The team did a good job at providing each other feedback this week. We commented on each other's progress to make sure the work quality is up to desired standard.
