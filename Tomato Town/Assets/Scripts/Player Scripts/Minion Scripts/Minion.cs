@@ -21,6 +21,15 @@ public class Minion : BaseAgent {
         idleState = new IdleMinionState(this);
         itemState = new ItemMinionState(this);
         thrownState = new ThrownMinionState(this);
+        //SetState(itemState);
+        SetState(idleState);
+    }
+
+    public bool CanPickupMinion() {
+        return state == idleState;
+    }
+
+    public void PickupMinion() {
         SetState(itemState);
     }
 
@@ -32,7 +41,6 @@ public class Minion : BaseAgent {
         SetState(thrownState);
     }
 
-
     private bool canHitEnemies;
     public void ToggleCollider(bool enable) {
         canHitEnemies = enable;
@@ -41,7 +49,7 @@ public class Minion : BaseAgent {
     private void OnTriggerEnter2D(Collider2D collision) {
         if(!canHitEnemies) return;
 
-        if(collision.tag.CompareTo("Enemy") == 0) {
+        if(collision.CompareTag("Enemy")) {
             BaseAgent enemy = collision.GetComponent<BaseAgent>();
             var direction = Mathf.Sign(velocity.x);
             var kb = data.knockback; kb.x *= direction;

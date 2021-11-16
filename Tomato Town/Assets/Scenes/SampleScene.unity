@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 2103832035}
   m_Layer: 13
   m_Name: Minion
-  m_TagString: Untagged
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1005,7 +1005,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.305263, y: 1.305263}
   m_EdgeRadius: 0
 --- !u!114 &2103832035
 MonoBehaviour:

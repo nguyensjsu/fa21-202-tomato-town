@@ -24,6 +24,7 @@ public class DefaultPlayerState : IAgentState
             }
         }
 
+        /*
         if(player.m_attack) {
             Attack a = data.basic;
             if(!player.grounded && player.m_downDirection)
@@ -31,8 +32,8 @@ public class DefaultPlayerState : IAgentState
 
             player.attackState.SetAttack(a);
             player.SetState(player.attackState);
-            player.Minion();
         }
+        */
     }
 
     public void FixedUpdateState() {

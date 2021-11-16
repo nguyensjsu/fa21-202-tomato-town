@@ -43,3 +43,4 @@ MonoBehaviour:
     knockback: {x: 0, y: 0}
     pushback: {x: 0, y: 15}
   flutterForce: 15
+  grabRadius: 2

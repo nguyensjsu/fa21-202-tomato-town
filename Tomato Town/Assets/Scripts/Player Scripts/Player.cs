@@ -10,16 +10,10 @@ public class Player : BaseAgent
     public IAgentState defaultState;
     public PlayerAttackState attackState;
 
+    public IAgentState haveMinionState, noMinionState;
+
     public bool hasBooster;
     public Minion minion;
-
-
-    private bool thrown;
-    public void Minion() {
-        if(thrown) minion.SetState(minion.itemState);
-        else minion.ThrowMinion(transform.localScale.x);
-        thrown = !thrown;
-    }
 
     // Start is called before the first frame update
     new void Start() {
@@ -30,8 +24,12 @@ public class Player : BaseAgent
         attackState = new PlayerAttackState(this,data.basic);
         SetState(defaultState);
 
-        // TEMP for now
-        minion = FindObjectOfType<Minion>();
+        // TODO: TEMP for now
+        // minion = FindObjectOfType<Minion>();
+
+        noMinionState = new NoMinionState(this);
+        haveMinionState = new HaveMinionState(this);
+        SetState(noMinionState);
     }
 
     public override void UpdateComponent() {

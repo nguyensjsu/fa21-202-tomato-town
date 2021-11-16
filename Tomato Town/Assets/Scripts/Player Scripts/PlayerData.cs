@@ -11,4 +11,6 @@ public class PlayerData : ScriptableObject
 
     public Attack basic, downAttack;
     public float flutterForce;
+
+    public float grabRadius;
 }

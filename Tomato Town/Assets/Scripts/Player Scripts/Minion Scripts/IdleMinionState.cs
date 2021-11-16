@@ -11,7 +11,9 @@ public class IdleMinionState : IAgentState
         minion = m;
     }
 
-    public void InitializeState() { }
+    public void InitializeState() {
+        minion.StickToGround();
+    }
     public void ExitState() { }
     public void UpdateState() { }
 

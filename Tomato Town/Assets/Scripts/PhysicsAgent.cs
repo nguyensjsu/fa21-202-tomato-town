@@ -105,6 +105,24 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
         rb.position = newPosition;
     }
 
+    // Place object onto ground
+    public void StickToGround() {
+        int count = rb.Cast(Vector2.down,contactFilter,hitBuffer);
+        if(count <= 0) return;
+        isGrounded = true;
+        int index = 0;
+        while(index < count) {
+            if(!hitBuffer[index].collider.isTrigger) {
+                break;
+            }
+            index += 1;
+        }
+
+        float distance = hitBuffer[index].distance - collisionTolerance;
+        rb.position += Vector2.down * distance;
+    }
+
+
     public void AddChild(IGameComponent c) { }
 
     public void RemoveChild(IGameComponent c) { }
