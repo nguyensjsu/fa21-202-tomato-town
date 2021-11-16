@@ -7,7 +7,7 @@ public abstract class BaseAgent : PhysicsAgent
     protected IAgentState state { get; private set; }
     protected IAgentState prevState { get; private set; }
     
-    public Vector2 originalScale;
+    [HideInInspector] public Vector2 originalScale;
     public Hitbox hurtbox { get; private set; }
     public Animator _animator { get; private set; }
 

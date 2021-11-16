@@ -16,7 +16,7 @@ public class Player : BaseAgent
     // Start is called before the first frame update
     new void Start() {
         base.Start();
-        GameManager.gameInstance.AddChild(this);
+        //GameManager.gameInstance.AddChild(this);
 
         defaultState = new DefaultPlayerState(this);
         attackState = new PlayerAttackState(this,data.basic);

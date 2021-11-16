@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour, IGameComponent
         else { _instance = this; }
 
         playerAgent = FindObjectOfType<Player>();
+        AddChild(playerAgent);
     }
 
     private void Update() {

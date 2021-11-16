@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
 {
+    [HideInInspector]
     public Vector2 velocity;
     protected int layerMask;
     protected Rigidbody2D rb;
