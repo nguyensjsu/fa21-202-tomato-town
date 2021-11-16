@@ -10,6 +10,7 @@ public abstract class BaseAgent : PhysicsAgent
     [HideInInspector] public Vector2 originalScale;
     public Hitbox hurtbox { get; private set; }
     public Animator _animator { get; private set; }
+    public bool grounded => isGrounded;
 
     public override void UpdateComponent() { state.UpdateState(); }
     public override void FixedUpdateComponent() { state.FixedUpdateState(); }

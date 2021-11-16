@@ -9,5 +9,5 @@ public class MinionData : ScriptableObject
     public float gravity, jumpForce, maxFallSpeed;
 
     public Vector2 throwVelocity;
-    public Vector2 itemShift;
+    public Vector2 itemShift, itemBounce, knockback;
 }

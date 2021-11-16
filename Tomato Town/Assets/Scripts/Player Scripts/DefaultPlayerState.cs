@@ -31,6 +31,7 @@ public class DefaultPlayerState : IAgentState
 
             player.attackState.SetAttack(a);
             player.SetState(player.attackState);
+            player.Minion();
         }
     }
 

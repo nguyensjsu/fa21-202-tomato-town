@@ -47,10 +47,13 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
     // Move the entity's position and check for collision
     public void Move(Vector2 movement) {
         isGrounded = false;
+        /*
         Vector2 moveAlongGround = new Vector2(groundNormal.y,-groundNormal.x);
         moveAlongGround = moveAlongGround.normalized;
         Vector2 move = moveAlongGround * movement.x;
         MoveEntity(move,false);
+        */
+        MoveEntity(movement * Vector2.right, false);
         MoveEntity(movement * Vector2.up,true);
     }
 

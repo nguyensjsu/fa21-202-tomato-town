@@ -5,14 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : BaseAgent
 {
-    public bool grounded => isGrounded;
     public PlayerData data;
 
     public IAgentState defaultState;
-    public AttackBaseState attackState;
+    public PlayerAttackState attackState;
 
     public bool hasBooster;
-    
+    public Minion minion;
+
+
+    private bool thrown;
+    public void Minion() {
+        if(thrown) minion.SetState(minion.itemState);
+        else minion.ThrowMinion(transform.localScale.x);
+        thrown = !thrown;
+    }
+
     // Start is called before the first frame update
     new void Start() {
         base.Start();
@@ -21,6 +29,9 @@ public class Player : BaseAgent
         defaultState = new DefaultPlayerState(this);
         attackState = new PlayerAttackState(this,data.basic);
         SetState(defaultState);
+
+        // TEMP for now
+        minion = FindObjectOfType<Minion>();
     }
 
     public override void UpdateComponent() {

@@ -15,8 +15,6 @@ public class IdleMinionState : IAgentState
     public void ExitState() { }
     public void UpdateState() { }
 
-    public void FixedUpdateState() {
-        minion.ApplyGravity(data.gravity, false);
-    }
+    public void FixedUpdateState() { }
 
 }
