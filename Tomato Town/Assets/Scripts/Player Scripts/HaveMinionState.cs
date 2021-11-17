@@ -16,16 +16,17 @@ public class HaveMinionState : IAgentState
 
 
     public void UpdateState() {
-        player.defaultState.UpdateState();
+        //player.defaultState.UpdateState();
 
-        if(player.m_attack) {
+        if(player.m_item) {
             player.minion.ThrowMinion(player.transform.localScale.x);
-            player.SetState(player.noMinionState);
+            player.minion = null;
+            player.SetSubState(player.noMinionState);
         }
     }
 
     public void FixedUpdateState() {
-        player.defaultState.FixedUpdateState();
+        //player.defaultState.FixedUpdateState();
     }
 
 }

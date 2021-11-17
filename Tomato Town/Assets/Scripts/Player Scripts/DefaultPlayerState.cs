@@ -17,14 +17,15 @@ public class DefaultPlayerState : IAgentState
         if(player.grounded && player.m_jumpPress) {
             player.Jump(data.jumpForce,data.airSpeed);
         }
+        /*
         else if(!player.grounded && player.hasBooster) {
             if(player.m_jumpPress) {
                 player.Jump(data.flutterForce,data.airSpeed, false);
                 player.hasBooster = false;
             }
         }
+        */
 
-        /*
         if(player.m_attack) {
             Attack a = data.basic;
             if(!player.grounded && player.m_downDirection)
@@ -33,7 +34,6 @@ public class DefaultPlayerState : IAgentState
             player.attackState.SetAttack(a);
             player.SetState(player.attackState);
         }
-        */
     }
 
     public void FixedUpdateState() {

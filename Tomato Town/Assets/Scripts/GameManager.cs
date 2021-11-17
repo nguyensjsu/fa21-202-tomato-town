@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour, IGameComponent
     private static GameManager _instance;
     
     public static GameManager gameInstance { get { return _instance; } }
-    public BaseAgent playerAgent;
+    public Player playerAgent;
     public List<BaseAgent> enemyAgents = new List<BaseAgent>();
 
 

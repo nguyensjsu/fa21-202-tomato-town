@@ -18,6 +18,9 @@ MonoBehaviour:
   jumpForce: 0
   maxFallSpeed: 0
   throwVelocity: {x: 15, y: 5}
+  upThrowVelocity: {x: 5, y: 15}
+  downThrowVelocity: {x: 5, y: -15}
+  blastVelocity: {x: 50, y: 4}
   itemShift: {x: 0, y: 0}
-  itemBounce: {x: 5, y: 15}
+  itemBounce: {x: 2, y: 15}
   knockback: {x: 25, y: 0}

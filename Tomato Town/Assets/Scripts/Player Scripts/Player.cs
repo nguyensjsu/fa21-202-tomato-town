@@ -10,10 +10,12 @@ public class Player : BaseAgent
     public IAgentState defaultState;
     public PlayerAttackState attackState;
 
+    private IAgentState minionSubState;
     public IAgentState haveMinionState, noMinionState;
 
     public bool hasBooster;
     public Minion minion;
+
 
     // Start is called before the first frame update
     new void Start() {
@@ -29,12 +31,22 @@ public class Player : BaseAgent
 
         noMinionState = new NoMinionState(this);
         haveMinionState = new HaveMinionState(this);
-        SetState(noMinionState);
+        SetSubState(noMinionState);
     }
 
     public override void UpdateComponent() {
         base.UpdateComponent();
         CheckInputs();
+        minionSubState.UpdateState();
+    }
+
+    public override void FixedUpdateComponent() {
+        base.FixedUpdateComponent();
+        minionSubState.FixedUpdateState();
+    }
+
+    public void SetSubState(IAgentState s) {
+        minionSubState = s;
     }
 
     #region Movement Functions
@@ -79,6 +91,7 @@ public class Player : BaseAgent
 
     public Vector2 m_moveInput { get; private set; }
     public bool m_attack { get; private set; }
+    public bool m_item { get; private set; }
     public bool m_jumpPress { get; private set; }
     public bool m_jumpHold { get; private set; }
     public bool m_jumpRelease { get; private set; }
@@ -89,6 +102,7 @@ public class Player : BaseAgent
     private void CheckInputs() {
         m_moveInput = PlayerInput.moveInput;
         m_attack = PlayerInput.confirm.isPressed;
+        m_item = PlayerInput.cancel.isPressed;
         m_jumpHold = PlayerInput.jump.isHeld;
         m_jumpPress = PlayerInput.jump.isPressed;
     }

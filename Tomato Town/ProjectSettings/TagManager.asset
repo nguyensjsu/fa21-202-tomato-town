@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Minion
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 2442148047
+    locked: 0
+  - name: Player
+    uniqueID: 4117838345
+    locked: 0
+  - name: Minion
+    uniqueID: 2732415329
     locked: 0

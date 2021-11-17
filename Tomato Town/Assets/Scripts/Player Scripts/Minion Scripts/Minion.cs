@@ -6,11 +6,13 @@ public class Minion : BaseAgent {
 
     public MinionData data;
     [HideInInspector]
-    public BaseAgent player;
+    public Player player;
     public IAgentState idleState;
     public IAgentState itemState;
     public IAgentState thrownState;
     public IAgentState knockoutState;
+
+    public Vector2 prevVelocity;
 
     // Start is called before the first frame update
     new void Start() {
@@ -25,8 +27,13 @@ public class Minion : BaseAgent {
         SetState(idleState);
     }
 
+    public override void FixedUpdateComponent() {
+        prevVelocity = velocity;
+        base.FixedUpdateComponent();
+    }
+
     public bool CanPickupMinion() {
-        return state == idleState;
+        return state == idleState || state == thrownState;
     }
 
     public void PickupMinion() {
@@ -35,9 +42,16 @@ public class Minion : BaseAgent {
 
     public void ThrowMinion(float direction) {
         if(state != itemState) return;
-        direction = Mathf.Sign(direction);
+        
         velocity = data.throwVelocity;
-        velocity.x *= direction;
+        if(player.m_upDirection)
+            velocity = data.upThrowVelocity;
+        else if(player.m_downDirection)
+            velocity = data.downThrowVelocity;
+        else if(player.m_isMoving)
+            velocity = data.blastVelocity;
+
+        velocity.x *= Mathf.Sign(direction);
         SetState(thrownState);
     }
 
@@ -56,6 +70,16 @@ public class Minion : BaseAgent {
             enemy.Attacked(kb);
             velocity = data.itemBounce;
             velocity.x *= -direction;
+        } else if(collision.CompareTag("wall")) {
+            velocity.x = -prevVelocity.x;
+            print(velocity);
         }
+
+        /*
+        else if(collision.CompareTag("wall")) {
+            velocity = data.itemBounce;
+            velocity.x *= -Mathf.Sign(velocity.x);
+        }
+        */
     }
 }

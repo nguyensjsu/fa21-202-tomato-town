@@ -26,19 +26,19 @@ public class NoMinionState : IAgentState
 
 
     public void UpdateState() {
-        player.defaultState.UpdateState();
+        //player.defaultState.UpdateState();
         DrawCircle(player.transform.position,data.grabRadius);
 
 
-        if(player.m_attack) {
+        if(player.m_item) {
             if(SearchMinion()) {
-                player.SetState(player.haveMinionState);
+                player.SetSubState(player.haveMinionState);
             }
         }
     }
 
     public void FixedUpdateState() {
-        player.defaultState.FixedUpdateState();
+        //player.defaultState.FixedUpdateState();
     }
 
     private bool SearchMinion() {

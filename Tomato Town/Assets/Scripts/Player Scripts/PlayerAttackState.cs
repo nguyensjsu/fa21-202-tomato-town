@@ -18,15 +18,18 @@ public class PlayerAttackState : AttackBaseState
     public override void UpdateState() {
         Attack(GameManager.gameInstance.enemyAgents);
 
+        
         if(player.grounded && player.m_jumpPress) {
             player.Jump(data.jumpForce, data.airSpeed);
         }
+        /*
         else if(!player.grounded && player.hasBooster) {
             if(player.m_jumpPress) {
                 player.Jump(data.flutterForce,data.airSpeed,false);
                 player.hasBooster = false;
             }
         }
+        */
     }
 
     public override void FixedUpdateState() {
