@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour, IGameComponent
             Destroy(gameObject);
         else { _instance = this; }
 
-        playerAgent = FindObjectOfType<Player>();
+        if(!playerAgent) 
+            playerAgent = FindObjectOfType<Player>();
         AddChild(playerAgent);
     }
 
