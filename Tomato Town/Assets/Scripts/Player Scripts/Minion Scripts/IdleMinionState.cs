@@ -13,8 +13,12 @@ public class IdleMinionState : IAgentState
 
     public void InitializeState() {
         minion.StickToGround();
+        minion._animator.SetBool("isIdle", true);
     }
-    public void ExitState() { }
+    public void ExitState() {
+        minion._animator.SetBool("isIdle", false);
+    }
+
     public void UpdateState() { }
 
     public void FixedUpdateState() { }
