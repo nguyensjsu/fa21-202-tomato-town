@@ -2,3 +2,6 @@
 
 Background Art:
 https://quintino-pixels.itch.io/wasteland-plataformer-tileset
+
+Character Art:
+https://clembod.itch.io/warrior-free-animation-set
