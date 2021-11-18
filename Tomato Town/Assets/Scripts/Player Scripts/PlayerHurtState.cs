@@ -17,15 +17,17 @@ public class PlayerHurtState : IAgentState
     public void InitializeState() {
         timer.ResetTimer();
         player._animator.SetBool("hurt", true);
+        player.shader.ApplyInvincibleMaterial();
     }
 
     public void ExitState() {
         player._animator.SetBool("hurt", false);
+        player.shader.RevertMaterial();
     }
 
     public void UpdateState() {
         player._animator.SetBool("hurt", !canAct);
-        if(timer.WaitForXSeconds(data.hurtStun)) {
+        if(timer.WaitForXSeconds(data.hurtDuration)) {
             player.SetState(player.defaultState);
         } else if(canAct) {
             player.defaultState.UpdateState();

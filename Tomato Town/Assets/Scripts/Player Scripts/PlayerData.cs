@@ -14,4 +14,5 @@ public class PlayerData : ScriptableObject
 
     public float grabRadius;
     public float hurtDuration, hurtStun;
+    public Vector2 hurtKnockback;
 }

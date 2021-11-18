@@ -46,3 +46,4 @@ MonoBehaviour:
   grabRadius: 2.5
   hurtDuration: 2
   hurtStun: 0.6666667
+  hurtKnockback: {x: 15, y: 0}

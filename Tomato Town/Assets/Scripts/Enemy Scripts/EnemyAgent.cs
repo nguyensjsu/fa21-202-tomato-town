@@ -18,9 +18,9 @@ public abstract class EnemyAgent : BaseAgent
 
         var layer = LayerMask.NameToLayer("Enemy");
         layerMask = Physics2D.GetLayerCollisionMask(layer);
-        contactFilter.SetLayerMask(layerMask);
-        contactFilter.useLayerMask = true;
-        contactFilter.useTriggers = true;
+        hitFilter.SetLayerMask(layerMask);
+        hitFilter.useLayerMask = true;
+        hitFilter.useTriggers = true;
 
         bodyHitbox = new Attack();
         bodyHitbox.knockback.x = 1;
@@ -44,10 +44,10 @@ public abstract class EnemyAgent : BaseAgent
         }
     }
 
-    private ContactFilter2D contactFilter;
+    private ContactFilter2D hitFilter;
     private RaycastHit2D[] hitBuffer = new RaycastHit2D[32];
     public bool SearchPlayer(float searchRadius) {
-        int count = Physics2D.CircleCast(transform.position,searchRadius,Vector2.zero,contactFilter,hitBuffer);
+        int count = Physics2D.CircleCast(transform.position,searchRadius,Vector2.zero,hitFilter,hitBuffer);
         for(int i = 0; i < count; i++) {
             if(hitBuffer[i].collider.gameObject.CompareTag("Player")) {
                 return true;

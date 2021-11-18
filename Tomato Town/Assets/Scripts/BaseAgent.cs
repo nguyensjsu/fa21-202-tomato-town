@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ShaderManager))]
 public abstract class BaseAgent : PhysicsAgent
 {
     protected IAgentState state { get; private set; }
@@ -11,6 +12,8 @@ public abstract class BaseAgent : PhysicsAgent
     public Hitbox hurtbox { get; private set; }
     public Animator _animator { get; private set; }
     public bool grounded => isGrounded;
+    public ShaderManager shader { get; private set; }
+
 
     public override void UpdateComponent() { state.UpdateState(); }
     public override void FixedUpdateComponent() { state.FixedUpdateState(); }
@@ -31,6 +34,7 @@ public abstract class BaseAgent : PhysicsAgent
         originalScale = transform.localScale;
         originalScale.x = Mathf.Abs(originalScale.x);
         hurtbox = new Hitbox(box, originalScale);
+        shader = GetComponent<ShaderManager>();
     }
 
     public virtual void Attacked(Vector2 knockback) {

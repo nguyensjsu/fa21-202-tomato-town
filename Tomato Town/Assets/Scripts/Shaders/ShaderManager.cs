@@ -5,12 +5,10 @@ using UnityEngine;
 // Allows other scripts to easily adjust the shaders of a character rig
 public class ShaderManager : MonoBehaviour
 {
-    /*
     private SpriteRenderer[] renders;
     private Material[] originalMats;
 
-    private GameManager dungeon;
-    private Material m1, m2, m3;
+    private MaterialConfig materials => GameManager.gameInstance.materials;
 
     private Timer timer;
 
@@ -19,22 +17,16 @@ public class ShaderManager : MonoBehaviour
         originalMats = new Material[renders.Length];
         for(int i = 0; i < renders.Length; i++)
             originalMats[i] = renders[i].material;
-
-        dungeon = FindObjectOfType<DungeonManager>();
-        m1 = dungeon.materials.hitlagShader;
-        m2 = dungeon.materials.spiritShader;
-        m3 = dungeon.materials.blinkShader;
     }
 
     public void FlashWhite() {
-        StartCoroutine(FlashWhite(dungeon.constants.hurtTime * Time.deltaTime));
+        //StartCoroutine(FlashWhite(dungeon.constants.hurtTime));
     }
 
-    public void InvincibleShader() { ChangeMaterial(m3); }
-    public void SpiritShader() { ChangeMaterial(m2); }
+    public void ApplyInvincibleMaterial() { ChangeMaterial(materials.blinkShader); }
 
     private IEnumerator FlashWhite(float waitTime) {
-        ChangeMaterial(m1);
+        ChangeMaterial(materials.hitlagShader);
         yield return new WaitForSeconds(waitTime);
         RevertMaterial();
     }
@@ -49,5 +41,4 @@ public class ShaderManager : MonoBehaviour
         for(int i = 0; i < renders.Length; i++)
             renders[i].material = originalMats[i];
     }
-    */
 }

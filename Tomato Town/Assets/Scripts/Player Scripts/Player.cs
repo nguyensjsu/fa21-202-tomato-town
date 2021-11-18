@@ -62,7 +62,8 @@ public class Player : BaseAgent
 
         print("what");
         //velocity = Vector2.up * 15; 
-        velocity = Vector2.right * Mathf.Sign(knockback.x) * 15;
+        velocity = data.hurtKnockback;
+        velocity.x *= Mathf.Sign(knockback.x);
         SetState(hurtState);
     }
 
