@@ -33,7 +33,7 @@ public abstract class BaseAgent : PhysicsAgent
         hurtbox = new Hitbox(box, originalScale);
     }
 
-    public void Attacked(Vector2 knockback) {
+    public virtual void Attacked(Vector2 knockback) {
         print("ouch");
     }
 
