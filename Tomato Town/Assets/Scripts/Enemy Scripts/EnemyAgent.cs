@@ -8,6 +8,8 @@ public abstract class EnemyAgent : BaseAgent
     private float castLength;
     protected Vector2 shift;
 
+    private Attack bodyHitbox;
+
     protected new void Start() {
         base.Start();
         baseLayerMask = layerMask;
@@ -20,6 +22,9 @@ public abstract class EnemyAgent : BaseAgent
         contactFilter.useLayerMask = true;
         contactFilter.useTriggers = true;
 
+        bodyHitbox = new Attack();
+        bodyHitbox.knockback.x = 1;
+
         castLength = 0.25f;
         var offset = box.offset;
         var size = box.size;
@@ -28,6 +33,15 @@ public abstract class EnemyAgent : BaseAgent
         shift *= transform.localScale;
 
         GameManager.gameInstance.AddEnemy(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("Player")) {
+            BaseAgent player = collision.GetComponent<BaseAgent>();
+            var direction = Mathf.Sign(velocity.x);
+            var kb = bodyHitbox.knockback; kb.x *= direction;
+            player.Attacked(kb);
+        }
     }
 
     private ContactFilter2D contactFilter;

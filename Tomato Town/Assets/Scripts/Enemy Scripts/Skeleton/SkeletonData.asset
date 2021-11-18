@@ -22,10 +22,10 @@ MonoBehaviour:
       pos2: {x: -0.5, y: 1}
     - pos1: {x: 1.7, y: -0.5}
       pos2: {x: -0.5, y: 1.5}
-    startup: 0
-    linger: 35
-    endlag: 36
+    startup: 35
+    linger: 1
+    endlag: 35
     power: 0
     mpCost: 0
-    knockback: {x: 0, y: 0}
+    knockback: {x: 1, y: 0}
     pushback: {x: 0, y: 0}

@@ -7,7 +7,12 @@ public class Player : BaseAgent
 {
     public PlayerData data;
 
+    private bool INVINCIBLE 
+        => state == hurtState 
+        || state == koState;
+
     public IAgentState defaultState;
+    public IAgentState hurtState, koState;
     public PlayerAttackState attackState;
 
     private IAgentState minionSubState;
@@ -23,6 +28,8 @@ public class Player : BaseAgent
         //GameManager.gameInstance.AddChild(this);
 
         defaultState = new DefaultPlayerState(this);
+        hurtState = new PlayerHurtState(this);
+        koState = new PlayerKOState(this);
         attackState = new PlayerAttackState(this,data.basic);
         SetState(defaultState);
 
@@ -47,6 +54,16 @@ public class Player : BaseAgent
 
     public void SetSubState(IAgentState s) {
         minionSubState = s;
+    }
+
+    public override void Attacked(Vector2 knockback) {
+        base.Attacked(knockback);
+        if(INVINCIBLE) return;
+
+        print("what");
+        //velocity = Vector2.up * 15; 
+        velocity = Vector2.right * Mathf.Sign(knockback.x) * 15;
+        SetState(hurtState);
     }
 
     #region Movement Functions

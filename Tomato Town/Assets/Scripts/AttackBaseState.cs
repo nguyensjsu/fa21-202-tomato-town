@@ -53,6 +53,7 @@ public abstract class AttackBaseState : IAgentState
         float targetScale = target.transform.localScale.x;
         Vector2 targetPos = target.transform.position;
 
+        DrawHitbox(userHit, user);
         for(int i = 0; i < userHit.Length && !hasHitTarget; i++) {
             hasHitTarget = IsHitTarget(userHit[i],userScale,userPos,targetHurt,targetScale,targetPos);
         }
@@ -96,7 +97,7 @@ public abstract class AttackBaseState : IAgentState
         // End the attack if it's done
         if(atkTimer.WaitForXFrames(curAttack.GetTotalFrames())) { user.RevertState(); return; }
 
-        DrawHitbox(curAttack.hitboxes,user.gameObject);
+        //DrawHitbox(curAttack.hitboxes,user.gameObject);
 
         // Otherwise attack each enemy
         for(int i = 0; i < targets.Count; i++) { Attack(targets[i],false); }

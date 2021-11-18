@@ -11,7 +11,7 @@ public class EnemyAttackState : AttackBaseState
     }
 
     public override void UpdateState() {
-        Attack(GameManager.gameInstance.enemyAgents);
+        Attack(GameManager.gameInstance.playerAgent);
     }
 
     public override void FixedUpdateState() { }
