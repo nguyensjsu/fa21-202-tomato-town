@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Skeleton : EnemyAgent
 {
-    public IAgentState defaultState;
     public AttackBaseState attackState;
     public SkeletonData data;
 

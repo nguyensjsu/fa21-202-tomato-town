@@ -13,6 +13,7 @@ public abstract class BaseAgent : PhysicsAgent
     public Animator _animator { get; private set; }
     public bool grounded => isGrounded;
     public ShaderManager shader { get; private set; }
+    public IAgentState defaultState;
 
 
     public override void UpdateComponent() { state.UpdateState(); }
@@ -24,8 +25,8 @@ public abstract class BaseAgent : PhysicsAgent
         if(prevState != null) prevState.ExitState();
         this.state.InitializeState();
     }
-    public void RevertState() { SetState(this.prevState); }
-
+    //public void RevertState() { SetState(this.prevState); }
+    public void RevertState() { SetState(defaultState); }
 
     protected void Start() {
         _animator = GetComponent<Animator>();

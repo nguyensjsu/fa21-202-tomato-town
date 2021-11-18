@@ -13,6 +13,7 @@ public class PlayerData : ScriptableObject
     public float flutterForce;
 
     public float grabRadius;
+    public int blinkSpeed;
     public float hurtDuration, hurtStun;
     public Vector2 hurtKnockback;
 }

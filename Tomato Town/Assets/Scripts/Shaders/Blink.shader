@@ -2,7 +2,8 @@ Shader "Custom/Blink"
 {
     Properties
     {
-
+        [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
+        _BlinkSpeed("Blink Speed", Int) = 2
     }
 
     SubShader
@@ -50,11 +51,11 @@ Shader "Custom/Blink"
         {
             fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color;
             //o.Albedo = lerp(c.rgb,float3(1.0,1.0,1.0),_FlashAmount);
-            o.Albedo = lerp(c.rgb,float3(1.0,1.0,1.0),0);
-            o.Emission = 0;
+            //o.Albedo = lerp(c.rgb,float3(1.0,1.0,1.0),0);
+            //o.Emission = 0;
             //o.Emission = lerp(c.rgb,float3(1.0,1.0,1.0),_FlashAmount) * _SelfIllum;
-            if (int(_Time.y) % _BlinkSpeed) o.Alpha = 0;
-            else o.Alpha = 1;
+            if (int(_Time.y*10) % _BlinkSpeed) o.Alpha = 0;
+            else o.Alpha = c.a;
         }
         ENDCG
     }

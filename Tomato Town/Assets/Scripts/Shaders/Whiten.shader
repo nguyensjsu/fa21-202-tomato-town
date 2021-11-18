@@ -5,8 +5,8 @@ Shader "Custom/Whiten"
         [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
         _SelfIllum("Self Illumination",Range(0.0,1.0)) = 0.0
         _FlashAmount("Flash Amount",Range(0.0,1.0)) = 0.0
-            //_Color ("Tint", Color) = (1,1,1,1)
-            [MaterialToggle] PixelSnap("Pixel snap", Float) = 0
+        //_Color ("Tint", Color) = (1,1,1,1)
+        [MaterialToggle] PixelSnap("Pixel snap", Float) = 0
     }
 
     SubShader
@@ -55,7 +55,7 @@ Shader "Custom/Whiten"
             fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color;
             o.Albedo = lerp(c.rgb,float3(1.0,1.0,1.0),_FlashAmount);
             o.Emission = lerp(c.rgb,float3(1.0,1.0,1.0),_FlashAmount) * _SelfIllum;
-            o.Alpha = c.a;
+            o.Alpha = 0.5f;// c.a;
         }
         ENDCG
     }

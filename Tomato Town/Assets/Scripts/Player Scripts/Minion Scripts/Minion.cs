@@ -7,7 +7,6 @@ public class Minion : BaseAgent {
     public MinionData data;
     [HideInInspector]
     public Player player;
-    public IAgentState idleState;
     public IAgentState itemState;
     public IAgentState thrownState;
     public IAgentState knockoutState;
@@ -20,11 +19,11 @@ public class Minion : BaseAgent {
         GameManager.gameInstance.AddChild(this);
         player = GameManager.gameInstance.playerAgent;
 
-        idleState = new IdleMinionState(this);
+        defaultState = new IdleMinionState(this);
         itemState = new ItemMinionState(this);
         thrownState = new ThrownMinionState(this);
         //SetState(itemState);
-        SetState(idleState);
+        SetState(defaultState);
     }
 
     public override void FixedUpdateComponent() {
@@ -33,7 +32,7 @@ public class Minion : BaseAgent {
     }
 
     public bool CanPickupMinion() {
-        return state == idleState || state == thrownState;
+        return state == defaultState || state == thrownState;
     }
 
     public void PickupMinion() {

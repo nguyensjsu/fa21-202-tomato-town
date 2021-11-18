@@ -11,7 +11,6 @@ public class Player : BaseAgent
         => state == hurtState 
         || state == koState;
 
-    public IAgentState defaultState;
     public IAgentState hurtState, koState;
     public PlayerAttackState attackState;
 

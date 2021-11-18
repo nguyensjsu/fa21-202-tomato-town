@@ -24,7 +24,7 @@ public class ThrownMinionState : IAgentState
 
     public void UpdateState() {
         if(minion.grounded)
-            minion.SetState(minion.idleState);
+            minion.SetState(minion.defaultState);
     }
 
     public void FixedUpdateState() {
