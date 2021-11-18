@@ -8,5 +8,6 @@ public class SkeletonData : ScriptableObject
     public float walkSpeed;
     public float gravity;
 
+    public float strikeRadius;
     public Attack basic;
 }

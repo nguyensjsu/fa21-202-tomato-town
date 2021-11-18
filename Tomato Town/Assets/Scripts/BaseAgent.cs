@@ -38,7 +38,8 @@ public abstract class BaseAgent : PhysicsAgent
     }
 
     // Make agent face a given direction
-    public void FaceDirection(int direction) {
+    public void FaceDirection(float direction) {
+        direction = Mathf.Sign(direction);
         transform.localScale = new Vector2(direction * originalScale.x, originalScale.y);
     }
 

@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 0
   gravity: 30
+  strikeRadius: 3
   basic:
     animationTrigger: swing
-    hitboxes: []
+    hitboxes:
+    - pos1: {x: 2, y: -0.5}
+      pos2: {x: -0.5, y: 1}
+    - pos1: {x: 1.7, y: -0.5}
+      pos2: {x: -0.5, y: 1.5}
     startup: 0
     linger: 35
     endlag: 36

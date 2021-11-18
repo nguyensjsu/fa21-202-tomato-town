@@ -18,9 +18,11 @@ public class Skeleton : EnemyAgent
     public override void Attacked(Vector2 knockback) {
         base.Attacked(knockback);
 
+        /*
         if(state == defaultState) {
             attackState.SetAttack(data.basic);
             SetState(attackState);
         }
+        */
     }
 }

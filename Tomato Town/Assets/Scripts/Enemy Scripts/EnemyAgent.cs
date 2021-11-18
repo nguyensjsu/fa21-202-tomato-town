@@ -14,6 +14,12 @@ public abstract class EnemyAgent : BaseAgent
         UpdateLayerMask(LayerMask.NameToLayer("EnemyMovement"));
         tag = "Enemy";
 
+        var layer = LayerMask.NameToLayer("Enemy");
+        layerMask = Physics2D.GetLayerCollisionMask(layer);
+        contactFilter.SetLayerMask(layerMask);
+        contactFilter.useLayerMask = true;
+        contactFilter.useTriggers = true;
+
         castLength = 0.25f;
         var offset = box.offset;
         var size = box.size;
@@ -24,7 +30,25 @@ public abstract class EnemyAgent : BaseAgent
         GameManager.gameInstance.AddEnemy(this);
     }
 
+    private ContactFilter2D contactFilter;
+    private RaycastHit2D[] hitBuffer = new RaycastHit2D[32];
+    public bool SearchPlayer(float searchRadius) {
+        int count = Physics2D.CircleCast(transform.position,searchRadius,Vector2.zero,contactFilter,hitBuffer);
+        for(int i = 0; i < count; i++) {
+            if(hitBuffer[i].collider.gameObject.CompareTag("Player")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     #region Movement Functions
+
+    public void FacePlayer() {
+        var playerPos = GameManager.gameInstance.playerAgent.transform.position;
+        var enemyPos = transform.position;
+        FaceDirection(playerPos.x - enemyPos.x);
+    }
 
     // Move the entity horizontally
     protected bool MoveForward(float moveSpeed) { return MoveHorizontally(moveSpeed,transform.localScale.x); }
