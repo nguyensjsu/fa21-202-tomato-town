@@ -17,7 +17,9 @@ public class ThrownMinionState : IAgentState
     }
 
     public void ExitState() {
-        minion.ToggleCollider(true);
+        // minion.velocity.y = data.itemGroundBounce.y;
+        minion.velocity = data.itemGroundBounce;
+        minion.ToggleCollider(false);
     }
 
     public void UpdateState() {
