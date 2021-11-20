@@ -11,3 +11,9 @@ https://jesse-m.itch.io/skeleton-pack
 
 Minion Art:
 https://pixelfrog-assets.itch.io/pixel-adventure-2
+
+
+
+Other:
+https://ansimuz.itch.io/gothicvania-patreon-collection
+https://luizmelo.itch.io/monsters-creatures-fantasy
