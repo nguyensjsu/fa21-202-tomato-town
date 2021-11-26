@@ -14,7 +14,7 @@ public class NoMinionState : IAgentState
     public NoMinionState(Player p) {
         this.player = p;
 
-        var layer = LayerMask.NameToLayer("EnemyMovement");
+        var layer = LayerMask.NameToLayer("MinionDetection");
         layerMask = Physics2D.GetLayerCollisionMask(layer);
         contactFilter.SetLayerMask(layerMask);
         contactFilter.useLayerMask = true;

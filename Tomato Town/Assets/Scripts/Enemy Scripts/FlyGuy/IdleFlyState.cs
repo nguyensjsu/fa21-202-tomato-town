@@ -14,7 +14,9 @@ public class IdleFlyState : IAgentState
     public void InitializeState() { }
 
     public void UpdateState() {
-        user.MoveForward(data.walkSpeed);
+        if(!user.MoveForward(data.walkSpeed)) {
+            user.FlipEnemy();
+        }
     }
 
     public void FixedUpdateState() { }

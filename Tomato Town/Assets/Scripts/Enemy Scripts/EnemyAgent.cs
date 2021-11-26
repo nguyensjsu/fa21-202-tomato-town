@@ -66,15 +66,17 @@ public abstract class EnemyAgent : BaseAgent
         FaceDirection(playerPos.x - enemyPos.x);
     }
 
+    public void FlipEnemy() {
+        FaceDirection(-transform.localScale.x);
+    }
+
     // Move the entity horizontally
     public bool MoveForward(float moveSpeed) { return MoveHorizontally(moveSpeed,transform.localScale.x); }
     public bool MoveBackward(float moveSpeed) { return MoveHorizontally(moveSpeed,-transform.localScale.x); }
-    public bool MoveHorizontally(float moveSpeed,float direction,float castLen = -1, bool castGround = false) {
+    public bool MoveHorizontally(float moveSpeed,float direction,float castLen = -1) {
         var dir = Mathf.Sign(direction);
-        if(castGround) {
-            castLen = castLen < 0 ? castLength : castLen;
-            if(!CheckPatrolDirection(castLen,dir)) return false;
-        }
+        castLen = castLen < 0 ? castLength : castLen;
+        if(!CheckPatrolDirection(castLen,dir)) return false;
 
         Move(Vector2.right * (dir * moveSpeed * Time.deltaTime));
         return true;
@@ -89,13 +91,12 @@ public abstract class EnemyAgent : BaseAgent
         shift.x = Mathf.Abs(shift.x) * Mathf.Sign(currentDirection);
         position += shift;
 
-        var checkGround = Physics2D.Raycast(position,direction,castDistance,layerMask);
-        var checkWall = Physics2D.Raycast(position,direction * Vector2.right,castDistance,layerMask);
+        var checkWall = Physics2D.Raycast(position,direction * Vector2.right,castDistance,baseLayerMask);
 
         Debug.DrawLine(position,position + (castDistance * direction));
         //print(checkWall.collider == false);
 
-        return checkGround.collider == true && checkWall.collider == false;
+        return checkWall.collider == false;
     }
     #endregion
 

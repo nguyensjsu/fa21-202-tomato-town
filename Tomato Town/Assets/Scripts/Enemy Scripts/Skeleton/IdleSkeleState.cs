@@ -22,7 +22,9 @@ public class IdleSkeleState : IAgentState
             user.SetState(user.attackState);
             user.FacePlayer();
         }
-        else user.MoveForward(data.walkSpeed);
+        else if(!user.MoveForward(data.walkSpeed)) {
+            user.FlipEnemy();
+        }
     }
 
     public void FixedUpdateState() {
