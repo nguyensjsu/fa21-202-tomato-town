@@ -5,13 +5,12 @@ using UnityEngine;
 public class Minion : BaseAgent {
 
     public MinionData data;
-    [HideInInspector]
-    public Player player;
     public IAgentState itemState;
     public IAgentState thrownState;
     public IAgentState knockoutState;
 
-    public Vector2 prevVelocity;
+    [HideInInspector] public Player player;
+    [HideInInspector] public Vector2 prevVelocity;
 
     // Start is called before the first frame update
     new void Start() {
