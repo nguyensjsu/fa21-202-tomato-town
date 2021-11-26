@@ -21,7 +21,6 @@ public class DefaultPlayerState : IAgentState
         player._animator.SetBool("isWalking", player.m_isMoving);
         player._animator.SetBool("isGrounded", player.grounded);
         player._animator.SetFloat("yVel", player.velocity.y);
-        Debug.Log(player.grounded);
 
         /*
         else if(!player.grounded && player.hasBooster) {

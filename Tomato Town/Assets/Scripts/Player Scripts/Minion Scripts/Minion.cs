@@ -73,7 +73,7 @@ public class Minion : BaseAgent {
             velocity.x *= -direction;
         } else if(collision.CompareTag("wall")) {
             velocity.x = -prevVelocity.x;
-            print(velocity);
+            //print(velocity);
         }
 
         /*

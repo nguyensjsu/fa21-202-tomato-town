@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour, IGameComponent
     public static GameManager gameInstance { get { return _instance; } }
     public Player playerAgent;
     public List<BaseAgent> enemyAgents = new List<BaseAgent>();
-    public MaterialConfig materials;
 
     private void Awake() {
         if(_instance != null && _instance != this) 
