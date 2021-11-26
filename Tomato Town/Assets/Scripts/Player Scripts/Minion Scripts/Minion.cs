@@ -64,6 +64,8 @@ public class Minion : BaseAgent {
 
         if(collision.CompareTag("Enemy")) {
             BaseAgent enemy = collision.GetComponent<BaseAgent>();
+            if(enemy.curHP <= 0) return;
+
             var direction = Mathf.Sign(velocity.x);
             var kb = data.knockback; kb.x *= direction;
             enemy.Attacked(kb);

@@ -8,12 +8,15 @@ public abstract class BaseAgent : PhysicsAgent
     protected IAgentState state { get; private set; }
     protected IAgentState prevState { get; private set; }
     
-    [HideInInspector] public Vector2 originalScale;
+    [HideInInspector] 
+    public Vector2 originalScale;
     public Hitbox hurtbox { get; private set; }
     public Animator _animator { get; private set; }
-    public bool grounded => isGrounded;
     public ShaderManager shader { get; private set; }
+
     public IAgentState defaultState;
+    public bool grounded => isGrounded;
+    public int maxHP, curHP;
 
 
     public override void UpdateComponent() { state.UpdateState(); }
@@ -25,7 +28,6 @@ public abstract class BaseAgent : PhysicsAgent
         if(prevState != null) prevState.ExitState();
         this.state.InitializeState();
     }
-    //public void RevertState() { SetState(this.prevState); }
     public void RevertState() { SetState(defaultState); }
 
     protected void Start() {
@@ -38,8 +40,15 @@ public abstract class BaseAgent : PhysicsAgent
         shader = GetComponent<ShaderManager>();
     }
 
-    public virtual void Attacked(Vector2 knockback) {
-        print("ouch");
+    protected void InitializeHealth(int startHP) {
+        maxHP = startHP;
+        curHP = startHP;
+    }
+
+    public virtual void Attacked(Vector2 knockback, int damage = 1) {
+        // print("ouch");
+        curHP = Mathf.Max(0, curHP - damage);
+
     }
 
     // Make agent face a given direction

@@ -36,6 +36,8 @@ public abstract class EnemyAgent : BaseAgent
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        if(curHP <= 0) return;
+
         if(collision.CompareTag("Player")) {
             BaseAgent player = collision.GetComponent<BaseAgent>();
             var direction = Mathf.Sign(velocity.x);
@@ -65,19 +67,21 @@ public abstract class EnemyAgent : BaseAgent
     }
 
     // Move the entity horizontally
-    protected bool MoveForward(float moveSpeed) { return MoveHorizontally(moveSpeed,transform.localScale.x); }
-    protected bool MoveBackward(float moveSpeed) { return MoveHorizontally(moveSpeed,-transform.localScale.x); }
-    protected bool MoveHorizontally(float moveSpeed,float direction,float castLen = -1) {
+    public bool MoveForward(float moveSpeed) { return MoveHorizontally(moveSpeed,transform.localScale.x); }
+    public bool MoveBackward(float moveSpeed) { return MoveHorizontally(moveSpeed,-transform.localScale.x); }
+    public bool MoveHorizontally(float moveSpeed,float direction,float castLen = -1, bool castGround = false) {
         var dir = Mathf.Sign(direction);
-        castLen = castLen < 0 ? castLength : castLen;
-        if(!CheckPatrolDirection(castLen,dir)) return false;
+        if(castGround) {
+            castLen = castLen < 0 ? castLength : castLen;
+            if(!CheckPatrolDirection(castLen,dir)) return false;
+        }
 
         Move(Vector2.right * (dir * moveSpeed * Time.deltaTime));
         return true;
     }
 
     // Returns true if the enemy can continue moving towards the given direction
-    protected bool CheckPatrolDirection(float castDistance,float currentDirection) {
+    public bool CheckPatrolDirection(float castDistance,float currentDirection) {
         Vector2 direction = Vector2.down;
         direction.x = Mathf.Sign(currentDirection);
 

@@ -55,9 +55,10 @@ public class Player : BaseAgent
         minionSubState = s;
     }
 
-    public override void Attacked(Vector2 knockback) {
-        base.Attacked(knockback);
+    public override void Attacked(Vector2 knockback, int damage = 1) {
         if(INVINCIBLE) return;
+
+        base.Attacked(knockback,damage);
 
         print("what");
         //velocity = Vector2.up * 15; 
