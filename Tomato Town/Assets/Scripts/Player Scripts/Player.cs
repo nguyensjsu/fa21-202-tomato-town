@@ -17,8 +17,8 @@ public class Player : BaseAgent
     private IAgentState minionSubState;
     public IAgentState haveMinionState, noMinionState;
 
-    public bool hasBooster;
-    public Minion minion;
+    [HideInInspector] public bool hasBooster;
+    [HideInInspector] public Minion minion;
 
 
     // Start is called before the first frame update
@@ -38,6 +38,7 @@ public class Player : BaseAgent
         noMinionState = new NoMinionState(this);
         haveMinionState = new HaveMinionState(this);
         SetSubState(noMinionState);
+        InitializeHealth(data.hp);
     }
 
     public override void UpdateComponent() {
@@ -60,11 +61,11 @@ public class Player : BaseAgent
 
         base.Attacked(knockback,damage);
 
-        print("what");
         //velocity = Vector2.up * 15; 
         velocity = data.hurtKnockback;
         velocity.x *= Mathf.Sign(knockback.x);
-        SetState(hurtState);
+        if(curHP <= 0) SetState(koState);
+        else SetState(hurtState);
     }
 
     #region Movement Functions
@@ -78,7 +79,7 @@ public class Player : BaseAgent
     }
 
     // Handles the player's air movement
-    public bool endFloat;
+    private bool endFloat;
     protected float jumpChance;
     private Timer jumpTimer = new Timer();
     protected float coyoteTime => Time.time - jumpChance;

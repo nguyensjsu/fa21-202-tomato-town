@@ -6,15 +6,14 @@ public abstract class BaseAgent : PhysicsAgent
 {
     protected IAgentState state { get; private set; }
     protected IAgentState prevState { get; private set; }
-    
-    [HideInInspector] 
-    public Vector2 originalScale;
+
     public Hitbox hurtbox { get; private set; }
     public Animator _animator { get; private set; }
 
     public IAgentState defaultState;
     public bool grounded => isGrounded;
-    public int maxHP, curHP;
+    [HideInInspector] public int maxHP, curHP;
+    [HideInInspector] public Vector2 originalScale;
 
 
     public override void UpdateComponent() { state.UpdateState(); }

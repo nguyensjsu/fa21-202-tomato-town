@@ -13,6 +13,7 @@ public class PlayerKOState : IAgentState
 
     public void InitializeState() {
         player._animator.SetBool("ko", true);
+        GameManager.gameInstance.EndGame();
     }
 
     public void ExitState() { }

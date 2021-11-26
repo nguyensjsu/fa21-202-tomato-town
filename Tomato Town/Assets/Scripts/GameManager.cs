@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour, IGameComponent
         AddChild(playerAgent);
     }
 
+    // Call when player dies
+    public void EndGame() { 
+    
+    }
+
+
+
     private void Update() {
         UpdateComponent();
     }

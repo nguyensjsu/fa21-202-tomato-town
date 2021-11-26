@@ -821,13 +821,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  originalScale: {x: 0, y: 0}
   maxHP: 0
   curHP: 0
+  originalScale: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 60781fcb8df64a742bbc82c9ef0c3bba, type: 2}
   hasBooster: 0
   minion: {fileID: 0}
-  endFloat: 0
 --- !u!50 &503344190
 Rigidbody2D:
   serializedVersion: 4
@@ -1313,7 +1312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867447043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44, y: 0.68, z: 0}
+  m_LocalPosition: {x: 0.44, y: 0.666, z: 0}
   m_LocalScale: {x: 5.5621066, y: 5.5621066, z: 5.5621066}
   m_Children: []
   m_Father: {fileID: 503344193}
@@ -1682,13 +1681,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  originalScale: {x: 0, y: 0}
   maxHP: 0
   curHP: 0
+  originalScale: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 60781fcb8df64a742bbc82c9ef0c3bba, type: 2}
   hasBooster: 0
   minion: {fileID: 0}
-  endFloat: 0
 --- !u!50 &1050475133
 Rigidbody2D:
   serializedVersion: 4
@@ -2241,7 +2239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478868626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1593066016}
@@ -4374,9 +4372,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  originalScale: {x: 0, y: 0}
   maxHP: 0
   curHP: 0
+  originalScale: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 6c145c04f7aff4c4ebd7a2761db6a164, type: 2}
 --- !u!95 &1504648285
 Animator:
@@ -4824,9 +4822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  originalScale: {x: 0, y: 0}
   maxHP: 0
   curHP: 0
+  originalScale: {x: 0, y: 0}
   data: {fileID: 11400000, guid: d02d8f4608921a249b19fe5745915095, type: 2}
 --- !u!212 &1699224333
 SpriteRenderer:
@@ -5266,9 +5264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  originalScale: {x: 0, y: 0}
   maxHP: 0
   curHP: 0
+  originalScale: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 0cfd77b2fad2b9044a0f601c6bdb768d, type: 2}
   player: {fileID: 0}
   prevVelocity: {x: 0, y: 0}
