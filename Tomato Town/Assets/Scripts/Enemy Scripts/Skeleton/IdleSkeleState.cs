@@ -11,7 +11,9 @@ public class IdleSkeleState : IAgentState
         this.user = e;
     }
 
-    public void InitializeState() { }
+    public void InitializeState() {
+        user._animator.SetBool("isMoving", true);
+    }
 
     public void UpdateState() {
         // Check if player is inside strike radius and swing if so
@@ -20,6 +22,7 @@ public class IdleSkeleState : IAgentState
             user.SetState(user.attackState);
             user.FacePlayer();
         }
+        else user.MoveForward(data.walkSpeed);
     }
 
     public void FixedUpdateState() {

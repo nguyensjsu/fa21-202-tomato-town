@@ -43,7 +43,7 @@ MonoBehaviour:
     knockback: {x: 0, y: 0}
     pushback: {x: 0, y: 15}
   flutterForce: 15
-  grabRadius: 2.5
+  grabRadius: 1.5
   blinkSpeed: 3
   hurtDuration: 2
   hurtStun: 0.6666667
