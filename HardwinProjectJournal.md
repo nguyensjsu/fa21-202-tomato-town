@@ -25,3 +25,17 @@ No tasks are blocked at the moment.
 
 4) Feedback XP Core Value<br>
 I felt like our team did a great job at giving each other feedback this week. I was testing out more player mechanics to make the game more interesting and Kenneth provided a lot a feedback on how he thought it felt. I also provided my own feedback on his approach to the game over screen.
+
+## Week 3 Scrum Report
+
+1) What tasks did I work on / complete?<br>
+I made the second enemy in the game, developed simple movement AI for all enemy types, and defined the hurt and ko states for both player and enemies. I also added more player and enemy animations to support the added features.
+
+2) What am I planning to work on next?<br>
+I establish the entire combat gameloop and polish it for release.
+
+3) What tasks are blocked waiting on another team member?<br>
+No tasks are blocked at the moment.
+
+4) Feedback XP Core Value<br>
+I think our team did a good job at providing feedback this week. I got a good amount of feedback on the new enemy features I added and I provided some feedback on Kenneth's enemy spawner.
