@@ -27,3 +27,18 @@ Polishing the game over screen and working on the title screen.
 None
 
 Communication: No issues with communication. Roles are clearly defined.
+
+## Week 3 Scrum Report
+
+- What tasks did I work on / complete?
+
+Started on a title screen, worked on basic enemy spawning.
+
+- Polishing what I've done, adding UI, adding new levels/
+
+Polishing the game over screen and working on the title screen.
+
+- What tasks are blocked waiting on another team member?
+None
+
+Communication: No issues with communication. Roles are clearly defined.
