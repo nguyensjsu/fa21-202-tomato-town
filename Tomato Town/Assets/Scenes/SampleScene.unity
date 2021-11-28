@@ -375,6 +375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAgent: {fileID: 503344189}
   enemyAgents: []
+  skeletonPrefab: {fileID: 168094765623149687, guid: f36c35657e3ebfc4aa627bd219c79edb, type: 3}
+  flyguyPrefab: {fileID: 5489249974266036741, guid: 91b7f4aa7fdc5d645a547ea8057fad2f, type: 3}
 --- !u!4 &269647462
 Transform:
   m_ObjectHideFlags: 0
@@ -1636,10 +1638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a145d19331d9843899afdaaaef3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renders: []
-  originalMats: []
-  timer:
-    _curTime: 0
 --- !u!1 &1074551310
 GameObject:
   m_ObjectHideFlags: 0
@@ -4707,6 +4705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 168094765623149694, guid: f36c35657e3ebfc4aa627bd219c79edb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f36c35657e3ebfc4aa627bd219c79edb, type: 3}
 --- !u!1001 &5489249974715357453
@@ -4763,6 +4765,10 @@ PrefabInstance:
     - target: {fileID: 5489249974266036746, guid: 91b7f4aa7fdc5d645a547ea8057fad2f, type: 3}
       propertyPath: m_Name
       value: Flying Guy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489249974266036746, guid: 91b7f4aa7fdc5d645a547ea8057fad2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b7f4aa7fdc5d645a547ea8057fad2f, type: 3}

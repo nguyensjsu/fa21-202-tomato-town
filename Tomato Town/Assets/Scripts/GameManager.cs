@@ -6,10 +6,13 @@ public class GameManager : MonoBehaviour, IGameComponent
 {
     private List<IGameComponent> components = new List<IGameComponent>();
     private static GameManager _instance;
-    
+
     public static GameManager gameInstance { get { return _instance; } }
     public Player playerAgent;
     public List<BaseAgent> enemyAgents = new List<BaseAgent>();
+    public EnemyAgent skeletonPrefab, flyguyPrefab;
+
+    IEnemySpawnStrategy spawner;
 
     private void Awake() {
         if(_instance != null && _instance != this) 
@@ -19,17 +22,21 @@ public class GameManager : MonoBehaviour, IGameComponent
         if(!playerAgent) 
             playerAgent = FindObjectOfType<Player>();
         AddChild(playerAgent);
+
+        spawner = new ExampleSpawn(skeletonPrefab, flyguyPrefab);
+        spawner.InitEnemySpawns();
     }
 
     // Call when player dies
     public void EndGame() { 
-    
+
     }
 
 
 
     private void Update() {
         UpdateComponent();
+        spawner.UpdateSpawns();
     }
 
     private void FixedUpdate() {
