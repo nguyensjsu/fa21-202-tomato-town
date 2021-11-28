@@ -32,7 +32,7 @@ I felt like our team did a great job at giving each other feedback this week. I 
 I made the second enemy in the game, developed simple movement AI for all enemy types, and defined the hurt and ko states for both player and enemies. I also added more player and enemy animations to support the added features.
 
 2) What am I planning to work on next?<br>
-I establish the entire combat gameloop and polish it for release.
+I plan to establish the entire combat gameloop and polish it for release.
 
 3) What tasks are blocked waiting on another team member?<br>
 No tasks are blocked at the moment.
