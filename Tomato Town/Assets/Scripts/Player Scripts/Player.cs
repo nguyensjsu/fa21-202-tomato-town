@@ -18,6 +18,7 @@ public class Player : BaseAgent
     public IAgentState haveMinionState, noMinionState;
 
     [HideInInspector] public bool hasBooster;
+    [HideInInspector] public bool hasMinion => minionSubState == haveMinionState;
     [HideInInspector] public Minion minion;
 
 

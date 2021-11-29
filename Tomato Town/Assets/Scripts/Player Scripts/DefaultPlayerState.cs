@@ -15,7 +15,9 @@ public class DefaultPlayerState : IAgentState
 
     public void UpdateState() {
         if(player.grounded && player.m_jumpPress) {
-            player.Jump(data.jumpForce,data.airSpeed);
+            if(player.m_downDirection) {
+                player.EnableDropdown();
+            } else player.Jump(data.jumpForce,data.airSpeed);
         }
 
         player._animator.SetBool("isWalking", player.m_isMoving);
@@ -32,10 +34,14 @@ public class DefaultPlayerState : IAgentState
         */
 
         if(player.m_attack) {
+            if(player.grounded) return;
+            if(!player.hasMinion) return;
+
             Attack a = data.basic;
+            /*
             if(!player.grounded && player.m_downDirection)
                 a = data.downAttack;
-
+            */
             player.attackState.SetAttack(a);
             player.SetState(player.attackState);
         }

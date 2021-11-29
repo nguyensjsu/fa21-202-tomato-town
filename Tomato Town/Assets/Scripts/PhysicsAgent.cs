@@ -47,12 +47,6 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
     // Move the entity's position and check for collision
     public void Move(Vector2 movement) {
         isGrounded = false;
-        /*
-        Vector2 moveAlongGround = new Vector2(groundNormal.y,-groundNormal.x);
-        moveAlongGround = moveAlongGround.normalized;
-        Vector2 move = moveAlongGround * movement.x;
-        MoveEntity(move,false);
-        */
         MoveEntity(movement * Vector2.right, false);
         MoveEntity(movement * Vector2.up,true);
     }
@@ -62,8 +56,11 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
 
         if(distance > 0) {
             int count = rb.Cast(movement,contactFilter,hitBuffer,distance + collisionTolerance);
+            if(movement.y < 0) UpdateDropdown(count);
 
             for(int i = 0; i < count; i++) {
+                if(CheckPassThrough(hitBuffer[i].collider)) continue;
+
                 Vector2 currentNormal = hitBuffer[i].normal;
                 if(currentNormal.y > 0.65f) { // Value is the most supported slope
                     isGrounded = true;
@@ -126,4 +123,39 @@ public abstract class PhysicsAgent : MonoBehaviour, IGameComponent
     public void AddChild(IGameComponent c) { }
 
     public void RemoveChild(IGameComponent c) { }
+
+    #region Platform Pass Through Logic
+    // Idea: Any colliders in this list are not detected for collision
+    protected HashSet<Collider2D> passThroughColliders = new HashSet<Collider2D>();
+
+    private bool CheckPassThrough(Collider2D c) {
+        return passThroughColliders.Contains(c);
+    }
+
+    public void AddPassThrough(Collider2D c) {
+        if(!passThroughColliders.Contains(c))
+            passThroughColliders.Add(c);
+    }
+
+    public void RemovePassThrough(Collider2D c) {
+        if(passThroughColliders.Contains(c))
+            passThroughColliders.Remove(c);
+    }
+
+
+    private bool canDrop = false;
+    public void EnableDropdown() { canDrop = true; }
+
+    protected void UpdateDropdown(int count) {
+        if(!canDrop) return;
+        canDrop = false;
+
+        // check if there's plaforms below agent
+        for(int i = 0; i < count; i++) {
+            if(hitBuffer[i].collider.gameObject.CompareTag("platform"))
+                AddPassThrough(hitBuffer[i].collider);
+        }
+    }
+    #endregion
+
 }

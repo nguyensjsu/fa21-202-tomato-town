@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkeletonData
   m_EditorClassIdentifier: 
   hp: 2
-  walkSpeed: 0.5
+  walkSpeed: 1.5
   gravity: 30
   strikeRadius: 3
   basic:

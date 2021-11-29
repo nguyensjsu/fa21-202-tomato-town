@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
 {
     EnemyAgent skelePrefab, flyguyPrefab;
-    public float leftSpawn = -6.55f, rightSpawn = 23.37f;
+    public float leftSpawn = -15f, rightSpawn = 15f;
     Timer timer = new Timer();
 
     public ExampleSpawn(EnemyAgent s,EnemyAgent f) {
@@ -24,7 +24,10 @@ public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
     }
 
     public void UpdateSpawns() {
-        if(timer.WaitForXSeconds(1)) SpawnRandom();
+        if(timer.WaitForXSeconds(3)) {
+            if(GameManager.gameInstance.enemyAgents.Count < 5)
+                SpawnRandom();
+        }
     }
 
     private void SpawnRandom() {
