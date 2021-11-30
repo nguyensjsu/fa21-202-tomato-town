@@ -16,8 +16,10 @@ public class IdleSkeleState : IAgentState
     }
 
     public void UpdateState() {
+        //if(!) return;
+
         // Check if player is inside strike radius and swing if so
-        if(user.SearchPlayer(data.strikeRadius)) {
+        if(user.grounded && user.SearchPlayer(data.strikeRadius)) {
             user.attackState.SetAttack(data.basic);
             user.SetState(user.attackState);
             user.FacePlayer();
