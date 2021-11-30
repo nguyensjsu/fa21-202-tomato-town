@@ -23,8 +23,9 @@ public class GameManager : MonoBehaviour, IGameComponent
             playerAgent = FindObjectOfType<Player>();
         AddChild(playerAgent);
 
-        spawner = new ExampleSpawn(skeletonPrefab, flyguyPrefab);
-        spawner.InitEnemySpawns();
+        spawner = GetComponent<IEnemySpawnStrategy>();
+        if(spawner == null) Debug.Log("Forgot to setup spawner!"); 
+        spawner.InitEnemySpawns(skeletonPrefab, flyguyPrefab);
     }
 
     // Call when player dies
@@ -32,7 +33,11 @@ public class GameManager : MonoBehaviour, IGameComponent
 
     }
 
-
+    public void ExitScene(SceneLoader.Scene nextScene) {
+        GameData.playerCoins = playerAgent.curHP;
+        GameData.playerCoins = playerAgent.coins;
+        SceneLoader.Load(nextScene);
+    }
 
     private void Update() {
         UpdateComponent();

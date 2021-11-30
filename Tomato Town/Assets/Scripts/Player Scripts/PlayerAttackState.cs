@@ -11,10 +11,6 @@ public class PlayerAttackState : AttackBaseState
         this.player = p;
     }
 
-    protected override void PerformOnHit() {
-        player.hasBooster = true;
-    }
-
     public override void UpdateState() {
         Attack(GameManager.gameInstance.enemyAgents);
 
@@ -22,14 +18,6 @@ public class PlayerAttackState : AttackBaseState
         if(player.grounded && player.m_jumpPress) {
             player.Jump(data.jumpForce, data.airSpeed);
         }
-        /*
-        else if(!player.grounded && player.hasBooster) {
-            if(player.m_jumpPress) {
-                player.Jump(data.flutterForce,data.airSpeed,false);
-                player.hasBooster = false;
-            }
-        }
-        */
     }
 
     public override void FixedUpdateState() {

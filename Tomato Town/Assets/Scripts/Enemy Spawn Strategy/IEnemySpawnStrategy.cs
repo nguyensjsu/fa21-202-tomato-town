@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IEnemySpawnStrategy
 {
-    void InitEnemySpawns();
+    void InitEnemySpawns(EnemyAgent type1, EnemyAgent type2);
     void UpdateSpawns();
     bool CanAdvance();
 }

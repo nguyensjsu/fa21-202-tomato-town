@@ -53,6 +53,14 @@ public class Minion : BaseAgent {
         SetState(thrownState);
     }
 
+    public void DropMinion(float direction) {
+        if(state != itemState) return;
+
+        velocity = data.itemBounce;
+        velocity.x *= Mathf.Sign(direction);
+        SetState(thrownState);
+    }
+
     private bool canHitEnemies;
     public void ToggleCollider(bool enable) {
         canHitEnemies = enable;

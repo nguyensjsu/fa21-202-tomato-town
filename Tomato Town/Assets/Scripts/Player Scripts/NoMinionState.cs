@@ -27,8 +27,6 @@ public class NoMinionState : IAgentState
 
     public void UpdateState() {
         //player.defaultState.UpdateState();
-        DrawCircle(player.transform.position,data.grabRadius);
-
 
         if(player.m_item) {
             if(SearchMinion()) {

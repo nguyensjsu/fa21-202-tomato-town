@@ -15,6 +15,10 @@ public class KOFlyState : IAgentState
     public void InitializeState() {
         landed = false;
         user._animator.SetTrigger("ko");
+
+        // Reward player with money
+        int reward = Random.Range(data.minReward,data.maxReward + 1);
+        GameManager.gameInstance.playerAgent.AdjustCoinAmount(reward);
     }
 
     public void UpdateState() {

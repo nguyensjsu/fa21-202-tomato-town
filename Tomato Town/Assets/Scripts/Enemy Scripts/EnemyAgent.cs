@@ -9,11 +9,12 @@ public abstract class EnemyAgent : BaseAgent
     protected Vector2 shift;
 
     private Attack bodyHitbox;
+    public IAgentState koState;
 
     protected new void Start() {
         base.Start();
-        baseLayerMask = layerMask;
         UpdateLayerMask(LayerMask.NameToLayer("EnemyMovement"));
+        baseLayerMask = layerMask;
         tag = "Enemy";
 
         var layer = LayerMask.NameToLayer("Enemy");
@@ -33,6 +34,14 @@ public abstract class EnemyAgent : BaseAgent
         shift *= transform.localScale;
 
         GameManager.gameInstance.AddEnemy(this);
+    }
+
+    public override void Attacked(Vector2 knockback,int damage = 1) {
+        if(state == koState) return;
+
+        base.Attacked(knockback,damage);
+        if(curHP <= 0) SetState(koState);
+        SoundManager.instance.PlayHurtE();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

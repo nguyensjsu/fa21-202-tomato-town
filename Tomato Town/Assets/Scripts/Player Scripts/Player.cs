@@ -17,15 +17,14 @@ public class Player : BaseAgent
     private IAgentState minionSubState;
     public IAgentState haveMinionState, noMinionState;
 
-    [HideInInspector] public bool hasBooster;
     [HideInInspector] public bool hasMinion => minionSubState == haveMinionState;
     [HideInInspector] public Minion minion;
 
+    public int coins { get; private set; }
 
     // Start is called before the first frame update
     new void Start() {
         base.Start();
-        //GameManager.gameInstance.AddChild(this);
 
         defaultState = new DefaultPlayerState(this);
         hurtState = new PlayerHurtState(this);
@@ -33,13 +32,14 @@ public class Player : BaseAgent
         attackState = new PlayerAttackState(this,data.basic);
         SetState(defaultState);
 
-        // TODO: TEMP for now
-        // minion = FindObjectOfType<Minion>();
-
         noMinionState = new NoMinionState(this);
         haveMinionState = new HaveMinionState(this);
         SetSubState(noMinionState);
         InitializeHealth(data.hp);
+
+        curHP = GameData.playerHP;
+        coins = GameData.playerCoins;
+        PlayerHUD.instance.UpdateHP(curHP);
     }
 
     public override void UpdateComponent() {
@@ -62,12 +62,23 @@ public class Player : BaseAgent
 
         base.Attacked(knockback,damage);
 
-        //velocity = Vector2.up * 15; 
         velocity = data.hurtKnockback;
         velocity.x *= Mathf.Sign(knockback.x);
         if(curHP <= 0) SetState(koState);
         else SetState(hurtState);
+        PlayerHUD.instance.UpdateHP(curHP);
+        SoundManager.instance.PlayHurt();
     }
+
+    public void AdjustHealth(int value) {
+        curHP = Mathf.Clamp(curHP + value, 0, maxHP);
+        PlayerHUD.instance.UpdateHP(curHP);
+    }
+
+    public void AdjustCoinAmount(int value) {
+        coins = Mathf.Max(0,coins + value);
+        PlayerHUD.instance.UpdateCoins(coins);
+    } 
 
     #region Movement Functions
 
@@ -87,6 +98,8 @@ public class Player : BaseAgent
 
     // Initiate jump
     public void Jump(float jumpHeight,float airSpeed,bool resetFloat = true) {
+        SoundManager.instance.PlayJump();
+
         jumpChance = 0;
         isGrounded = false;
         endFloat = !resetFloat;

@@ -11,7 +11,7 @@ public class LoaderCallback : MonoBehaviour {
     private void Update() {
         if (!isLoaded) {
             isLoaded = true;
-            //SceneLoader.LoaderCallback();
+            SceneLoader.LoaderCallback();
         }        
     }
 }

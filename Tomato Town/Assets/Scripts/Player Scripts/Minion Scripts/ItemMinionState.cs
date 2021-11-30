@@ -11,7 +11,9 @@ public class ItemMinionState : IAgentState
         minion = m;
     }
 
-    public void InitializeState() { }
+    public void InitializeState() {
+        SoundManager.instance.PlayPickup();
+    }
     public void ExitState() { }
     public void UpdateState() { }
 

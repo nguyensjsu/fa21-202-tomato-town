@@ -14,6 +14,10 @@ public class PlayerKOState : IAgentState
     public void InitializeState() {
         player._animator.SetBool("ko", true);
         GameManager.gameInstance.EndGame();
+
+        if(player.hasMinion) {
+            player.minion.DropMinion(player.transform.localScale.x);
+        }
     }
 
     public void ExitState() { }

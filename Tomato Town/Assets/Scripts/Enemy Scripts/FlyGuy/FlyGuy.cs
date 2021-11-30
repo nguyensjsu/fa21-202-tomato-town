@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyGuy : EnemyAgent
 {
-    public IAgentState koState;
+    //public IAgentState koState;
     public FlyGuyData data;
 
     protected new void Start() {
@@ -15,11 +15,12 @@ public class FlyGuy : EnemyAgent
         SetState(defaultState);
         InitializeHealth(data.hp);
     }
-
+    /*
     public override void Attacked(Vector2 knockback, int damage = 1) {
         if(state == koState) return;
 
         base.Attacked(knockback, damage);
         if(curHP <= 0) SetState(koState);
     }
+    */
 }

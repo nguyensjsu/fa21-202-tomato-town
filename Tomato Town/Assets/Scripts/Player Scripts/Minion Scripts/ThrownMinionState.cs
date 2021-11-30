@@ -14,6 +14,7 @@ public class ThrownMinionState : IAgentState
     public void InitializeState() {
         minion.ApplyGravity(data.gravity,false);
         minion.ToggleCollider(true);
+        SoundManager.instance.PlayThrow();
     }
 
     public void ExitState() {

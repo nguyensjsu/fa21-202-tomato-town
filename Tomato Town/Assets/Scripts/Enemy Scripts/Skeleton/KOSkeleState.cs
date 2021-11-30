@@ -14,6 +14,10 @@ public class KOSkeleState : IAgentState
     public void InitializeState() {
         user._animator.SetTrigger("ko");
         GameManager.gameInstance.RemoveEnemy(user);
+
+        // Reward player with money
+        int reward = Random.Range(data.minReward,data.maxReward+1);
+        GameManager.gameInstance.playerAgent.AdjustCoinAmount(reward);
     }
 
     public void UpdateState() { }

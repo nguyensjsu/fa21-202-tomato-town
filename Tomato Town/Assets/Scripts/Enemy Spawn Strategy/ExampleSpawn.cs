@@ -5,22 +5,18 @@ using UnityEngine;
 public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
 {
     EnemyAgent skelePrefab, flyguyPrefab;
-    public float leftSpawn = -15f, rightSpawn = 15f;
-    Timer timer = new Timer();
-
-    public ExampleSpawn(EnemyAgent s,EnemyAgent f) {
-        skelePrefab = s;
-        flyguyPrefab = f;
-    }
+    float leftSpawn = -15f, rightSpawn = 15f;
+    Timer timer;
 
     public bool CanAdvance() {
         throw new System.NotImplementedException();
     }
 
-    public void InitEnemySpawns() {
-        //InvokeRepeating("SpawnRandom",2.0f,1f);
-        //InvokeRepeating("SpawnRandom",10.0f,2.9f);
-        //SpawnRandom();
+    public void InitEnemySpawns(EnemyAgent s,EnemyAgent f) {
+        skelePrefab = s;
+        flyguyPrefab = f;
+        timer = new Timer();
+        SpawnRandom();
     }
 
     public void UpdateSpawns() {

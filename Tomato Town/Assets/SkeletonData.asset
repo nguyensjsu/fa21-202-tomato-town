@@ -30,3 +30,5 @@ MonoBehaviour:
     mpCost: 0
     knockback: {x: 1, y: 0}
     pushback: {x: 0, y: 0}
+  minReward: 5
+  maxReward: 7

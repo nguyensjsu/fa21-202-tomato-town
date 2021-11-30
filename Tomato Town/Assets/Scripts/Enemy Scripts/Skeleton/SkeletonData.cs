@@ -11,4 +11,6 @@ public class SkeletonData : ScriptableObject
 
     public float strikeRadius;
     public Attack basic;
+
+    public int minReward, maxReward;
 }

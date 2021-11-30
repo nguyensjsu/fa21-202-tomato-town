@@ -8,4 +8,6 @@ public class FlyGuyData : ScriptableObject
     public int hp;
     public float walkSpeed;
     public float gravity;
+
+    public int minReward, maxReward;
 }

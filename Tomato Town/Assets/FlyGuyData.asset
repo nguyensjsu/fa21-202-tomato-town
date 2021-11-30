@@ -15,3 +15,5 @@ MonoBehaviour:
   hp: 1
   walkSpeed: 2
   gravity: 15
+  minReward: 3
+  maxReward: 5
