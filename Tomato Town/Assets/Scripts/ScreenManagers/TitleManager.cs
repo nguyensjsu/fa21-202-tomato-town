@@ -5,14 +5,16 @@ using UnityEngine;
 public class TitleManager : MonoBehaviour
 {
 
-    public void NewGame()
-    {
+    private void Awake() {
+        NewGame();
+    }
+
+    public void NewGame() {
+        GameData.InitializeData();
         SceneLoader.Load(SceneLoader.Scene.CombatArea);
     }
 
-    public void QuitGame()
-    {
- 
+    public void QuitGame() {
         Application.Quit();
     }
 }

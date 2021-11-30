@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameoverManager : MonoBehaviour {
-
-    // REMOVE ME LATER AND READ FROM SAVE FILE
-    [SerializeField] SceneLoader.Scene room;
+public class GameOverManager : MonoBehaviour {
 
     private void Update() {
         if(PlayerInput.confirm.isPressed) {
@@ -14,7 +11,8 @@ public class GameoverManager : MonoBehaviour {
     }
 
     public void ContinueGame() {
-        SceneLoader.Load(room);
+        GameData.InitializeData();
+        SceneLoader.Load(GameData.targetScene);
     }
 
     public void ReturnToTitle() {

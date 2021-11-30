@@ -19,7 +19,7 @@ MonoBehaviour:
   basic:
     animationTrigger: swing
     hitboxes:
-    - pos1: {x: 2, y: -0.5}
+    - pos1: {x: 2.3, y: -0.5}
       pos2: {x: -0.5, y: 1}
     - pos1: {x: 1.7, y: -0.5}
       pos2: {x: -0.5, y: 1.5}
