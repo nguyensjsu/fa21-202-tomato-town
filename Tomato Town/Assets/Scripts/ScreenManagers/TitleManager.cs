@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInput))]
 public class TitleManager : MonoBehaviour
 {
-
-    private void Awake() {
-        NewGame();
+    private void Update() {
+        if(PlayerInput.jump.isPressed) {
+            SoundManager.instance.PlayKeyPress();
+            NewGame();
+        }
     }
 
     public void NewGame() {

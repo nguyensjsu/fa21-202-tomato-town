@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInput))]
 public class GameOverManager : MonoBehaviour {
 
     private void Update() {
-        if(PlayerInput.confirm.isPressed) {
+        if(PlayerInput.jump.isPressed) {
+            SoundManager.instance.PlayKeyPress();
             ContinueGame();
         }
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   hp: 2
   walkSpeed: 1.5
   gravity: 30
-  strikeRadius: 3
+  strikeRadius: 2.3
   basic:
     animationTrigger: swing
     hitboxes:

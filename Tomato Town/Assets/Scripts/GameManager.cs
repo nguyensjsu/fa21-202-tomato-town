@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour, IGameComponent
     public EnemyAgent skeletonPrefab, flyguyPrefab;
 
     IEnemySpawnStrategy spawner;
+    private bool gameEnded;
 
     private void Awake() {
         if(_instance != null && _instance != this) 
@@ -28,15 +29,25 @@ public class GameManager : MonoBehaviour, IGameComponent
         spawner.InitEnemySpawns(skeletonPrefab, flyguyPrefab);
     }
 
-    // Call when player dies
-    public void EndGame() { 
+    // TODO: Call when player dies
+    public void EndGame() {
+        gameEnded = true;
+        //ExitScene(SceneLoader.Scene.Gameover);
+        ScreenFader.instance.SlowFadeOut();
+        StartCoroutine(WaitToExit(3f,SceneLoader.Scene.Gameover));
+    }
 
+    IEnumerator WaitToExit(float time, SceneLoader.Scene exitScene) {
+        yield return new WaitForSeconds(time);
+        SceneLoader.Load(exitScene);
     }
 
     public void ExitScene(SceneLoader.Scene nextScene) {
         GameData.playerCoins = playerAgent.curHP;
         GameData.playerCoins = playerAgent.coins;
-        SceneLoader.Load(nextScene);
+        ScreenFader.instance.FadeOut();
+        //SceneLoader.Load(nextScene);
+        StartCoroutine(WaitToExit(0.5f, nextScene));
     }
 
     private void Update() {
