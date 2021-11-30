@@ -11,12 +11,13 @@ public class PlayerHUD : MonoBehaviour
 
     [SerializeField] Image[] hpIcons;
     [SerializeField] Sprite hpFull, hpEmpty;
-    [SerializeField] TextMeshProUGUI coins;
+    [SerializeField] TextMeshProUGUI coins, minions;
 
     private void Awake() {
         if(_instance != null && _instance != this)
             Destroy(gameObject);
         else { _instance = this; }
+        UpdateMinions();
     }
 
     public void UpdateHP(int curHP) {
@@ -27,5 +28,10 @@ public class PlayerHUD : MonoBehaviour
 
     public void UpdateCoins(int value) {
         coins.text = value.ToString();
+    }
+
+    public void UpdateMinions() {
+        print(GameData.minionCount);
+        minions.text = GameData.minionCount.ToString();
     }
 }

@@ -40,6 +40,7 @@ public class Player : BaseAgent
         curHP = GameData.playerHP;
         coins = GameData.playerCoins;
         PlayerHUD.instance.UpdateHP(curHP);
+        PlayerHUD.instance.UpdateCoins(coins);
     }
 
     public override void UpdateComponent() {
@@ -78,7 +79,12 @@ public class Player : BaseAgent
     public void AdjustCoinAmount(int value) {
         coins = Mathf.Max(0,coins + value);
         PlayerHUD.instance.UpdateCoins(coins);
-    } 
+    }
+
+    public void AdjustMinionAmount(int value) {
+        GameData.minionCount += value;
+        PlayerHUD.instance.UpdateMinions();
+    }
 
     #region Movement Functions
 

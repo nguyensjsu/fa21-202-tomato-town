@@ -6,7 +6,7 @@ public class EmptySpawn : MonoBehaviour, IEnemySpawnStrategy
 {
 
     public void InitEnemySpawns(EnemyAgent s,EnemyAgent f) { }
-    public bool CanAdvance() { return true; }
+    public bool CanAdvance() { return false; }
     public void UpdateSpawns() { }
 
 }

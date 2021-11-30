@@ -29,10 +29,11 @@ public class GameManager : MonoBehaviour, IGameComponent
         spawner.InitEnemySpawns(skeletonPrefab, flyguyPrefab);
     }
 
-    // TODO: Call when player dies
+    // Call when player dies
     public void EndGame() {
+        if(gameEnded) return;
+
         gameEnded = true;
-        //ExitScene(SceneLoader.Scene.Gameover);
         ScreenFader.instance.SlowFadeOut();
         StartCoroutine(WaitToExit(3f,SceneLoader.Scene.Gameover));
     }
@@ -53,6 +54,13 @@ public class GameManager : MonoBehaviour, IGameComponent
     private void Update() {
         UpdateComponent();
         spawner.UpdateSpawns();
+
+        if(gameEnded) return;
+        if(spawner.CanAdvance()) {
+            gameEnded = true;
+            GameData.targetScene = SceneLoader.Scene.CombatArea;
+            ExitScene(SceneLoader.Scene.RestingArea);
+        }
     }
 
     private void FixedUpdate() {

@@ -35,6 +35,7 @@ public abstract class PurchasableItem : MonoBehaviour, IGameComponent
             Player player = GameManager.gameInstance.playerAgent;
             if(player.coins >= price) {
                 player.AdjustCoinAmount(-price);
+                SoundManager.instance.PlayPickup();
                 DoOnPurchase();
             }
         }

@@ -5,6 +5,6 @@ using UnityEngine;
 public class MinionItem : PurchasableItem
 {
     protected override void DoOnPurchase() {
-        GameData.minionCount += 1;
+        GameManager.gameInstance.playerAgent.AdjustMinionAmount(1);
     }
 }

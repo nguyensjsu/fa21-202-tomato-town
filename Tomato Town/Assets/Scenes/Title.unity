@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -546,7 +546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &996194527
 Light:
   m_ObjectHideFlags: 0
@@ -981,8 +981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -154.88702, y: -185}
-  m_SizeDelta: {x: 466.704, y: 76.56}
+  m_AnchoredPosition: {x: -159.32085, y: -182}
+  m_SizeDelta: {x: 457.836, y: 76.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549912155
 MonoBehaviour:
@@ -1004,14 +1004,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Controls:
-
-    Jump = Spacebar
-
-    Move = Arrow Keys or WASD
-
-    Grab/Toss
-    Skull = J or C Keys'
+  m_text: "Controls:\nMove = Arrow Keys or WASD\nJump = Spacebar (hold down \nto
+    drop through platform instead)\nGrab/Toss Skull = J or C Keys"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 08973e12c090c274f882cc360ed77e71, type: 2}
   m_sharedMaterial: {fileID: -6389249709316799903, guid: 08973e12c090c274f882cc360ed77e71, type: 2}
@@ -1038,7 +1032,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.05
+  m_fontSize: 13.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1425,6 +1419,10 @@ PrefabInstance:
     - target: {fileID: 1329316710138381363, guid: 377f91de56415054fa8a4fbd635bb1d1, type: 3}
       propertyPath: m_Name
       value: Screen Fader
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329316710138381363, guid: 377f91de56415054fa8a4fbd635bb1d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377f91de56415054fa8a4fbd635bb1d1, type: 3}

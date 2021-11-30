@@ -6,6 +6,7 @@ public class Exit : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Player")) {
+            SoundManager.instance.PlayKeyPress();
             GameManager.gameInstance.ExitScene(GameData.targetScene);
         }
     }

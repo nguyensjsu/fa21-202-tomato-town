@@ -7,9 +7,10 @@ public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
     EnemyAgent skelePrefab, flyguyPrefab;
     float leftSpawn = -15f, rightSpawn = 15f;
     Timer timer;
+    int spawnCount;
 
     public bool CanAdvance() {
-        throw new System.NotImplementedException();
+        return spawnCount > 2;
     }
 
     public void InitEnemySpawns(EnemyAgent s,EnemyAgent f) {
@@ -31,6 +32,7 @@ public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
         var b = Random.Range(0,2);
         var mob = a != 0 ? skelePrefab : flyguyPrefab;
         SpawnEnemy(mob, b == 0);
+        spawnCount += 1;
     }
 
     private void SpawnEnemy(EnemyAgent mob, bool isLeft) {
