@@ -28,6 +28,8 @@ public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
     }
 
     private void SpawnRandom() {
+        if(spawnCount > 2) return;
+
         var a = Random.Range(0,4);
         var b = Random.Range(0,2);
         var mob = a != 0 ? skelePrefab : flyguyPrefab;

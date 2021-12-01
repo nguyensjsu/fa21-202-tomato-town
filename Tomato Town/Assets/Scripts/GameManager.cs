@@ -34,8 +34,7 @@ public class GameManager : MonoBehaviour, IGameComponent
         if(gameEnded) return;
 
         gameEnded = true;
-        ScreenFader.instance.SlowFadeOut();
-        StartCoroutine(WaitToExit(3f,SceneLoader.Scene.Gameover));
+        ExitScene(SceneLoader.Scene.Gameover, true);
     }
 
     IEnumerator WaitToExit(float time, SceneLoader.Scene exitScene) {
@@ -43,12 +42,16 @@ public class GameManager : MonoBehaviour, IGameComponent
         SceneLoader.Load(exitScene);
     }
 
-    public void ExitScene(SceneLoader.Scene nextScene) {
-        GameData.playerCoins = playerAgent.curHP;
+    public void ExitScene(SceneLoader.Scene nextScene, bool slowFade = false) {
+        GameData.playerHP = playerAgent.curHP;
         GameData.playerCoins = playerAgent.coins;
-        ScreenFader.instance.FadeOut();
-        //SceneLoader.Load(nextScene);
-        StartCoroutine(WaitToExit(0.5f, nextScene));
+        if(slowFade) {
+            ScreenFader.instance.SlowFadeOut();
+            StartCoroutine(WaitToExit(3f,nextScene));
+        } else {
+            ScreenFader.instance.FadeOut();
+            StartCoroutine(WaitToExit(0.5f,nextScene));
+        }
     }
 
     private void Update() {
@@ -56,10 +59,10 @@ public class GameManager : MonoBehaviour, IGameComponent
         spawner.UpdateSpawns();
 
         if(gameEnded) return;
-        if(spawner.CanAdvance()) {
+        if(spawner.CanAdvance() && enemyAgents.Count <= 0) {
             gameEnded = true;
             GameData.targetScene = SceneLoader.Scene.CombatArea;
-            ExitScene(SceneLoader.Scene.RestingArea);
+            ExitScene(SceneLoader.Scene.RestingArea, true);
         }
     }
 
