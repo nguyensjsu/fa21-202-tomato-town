@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour, IGameComponent
         AddChild(playerAgent);
 
         spawner = GetComponent<IEnemySpawnStrategy>();
-        if(spawner == null) Debug.Log("Forgot to setup spawner!"); 
+        // Define the spawner if one isn't already set
+        if(spawner == null) {
+            spawner = new ExampleSpawn();
+        }
         spawner.InitEnemySpawns(skeletonPrefab, flyguyPrefab);
     }
 
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour, IGameComponent
         if(gameEnded) return;
         if(spawner.CanAdvance() && enemyAgents.Count <= 0) {
             gameEnded = true;
+            GameData.level += 1;
             GameData.targetScene = SceneLoader.Scene.CombatArea;
             ExitScene(SceneLoader.Scene.RestingArea, true);
         }

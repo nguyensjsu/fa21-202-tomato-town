@@ -15,6 +15,7 @@ public class Minion : BaseAgent {
     // Start is called before the first frame update
     new void Start() {
         base.Start();
+        print("Called");
         GameManager.gameInstance.AddChild(this);
         player = GameManager.gameInstance.playerAgent;
 

@@ -17,6 +17,5 @@ public class MinionSpawner : MonoBehaviour
         var xVal = Random.Range(minX, maxX);
         var pos = new Vector2(xVal,spawnHeight);
         var m = Instantiate(minionPrefab,pos,Quaternion.identity);
-        GameManager.gameInstance.AddChild(m);
     }
 }
