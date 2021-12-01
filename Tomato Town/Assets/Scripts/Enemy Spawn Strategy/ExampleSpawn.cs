@@ -10,7 +10,7 @@ public class ExampleSpawn : MonoBehaviour, IEnemySpawnStrategy
     int spawnCount;
 
     public bool CanAdvance() {
-        return spawnCount > 2;
+        return spawnCount > 2 && GameManager.gameInstance.enemyAgents.Count <= 0;
     }
 
     public void InitEnemySpawns(EnemyAgent s,EnemyAgent f) {

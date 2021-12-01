@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour, IGameComponent
         spawner.UpdateSpawns();
 
         if(gameEnded) return;
-        if(spawner.CanAdvance() && enemyAgents.Count <= 0) {
+        if(spawner.CanAdvance()) {
             gameEnded = true;
             GameData.level += 1;
             GameData.targetScene = SceneLoader.Scene.CombatArea;
