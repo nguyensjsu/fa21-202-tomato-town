@@ -33,15 +33,13 @@ public class DefaultPlayerState : IAgentState
         }
         */
 
-        if(player.m_attack) {
-            if(player.grounded) return;
-            if(!player.hasMinion) return;
 
+        if(player.m_attack) {
+            if(!player.grounded) return;
+            //if(!player.hasMinion) return;
             Attack a = data.basic;
-            /*
-            if(!player.grounded && player.m_downDirection)
-                a = data.downAttack;
-            */
+            //if(!player.grounded && player.m_downDirection)
+            //    a = data.downAttack;
             player.attackState.SetAttack(a);
             player.SetState(player.attackState);
         }

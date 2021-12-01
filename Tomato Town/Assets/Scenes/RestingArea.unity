@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1345d9eab12de68458af3975dc6f9945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 70
+  price: 50
   priceDisplay: {fileID: 1800291597}
 --- !u!1 &226576592
 GameObject:
@@ -6648,7 +6648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5489249974266036746, guid: 91b7f4aa7fdc5d645a547ea8057fad2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b7f4aa7fdc5d645a547ea8057fad2f, type: 3}

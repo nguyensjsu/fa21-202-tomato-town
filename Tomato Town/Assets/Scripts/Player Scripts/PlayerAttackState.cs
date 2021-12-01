@@ -13,15 +13,16 @@ public class PlayerAttackState : AttackBaseState
 
     public override void UpdateState() {
         Attack(GameManager.gameInstance.enemyAgents);
-
+        /*
         if(player.grounded) player.RevertState();
         if(player.grounded && player.m_jumpPress) {
             player.Jump(data.jumpForce, data.airSpeed);
         }
+        */
     }
 
     public override void FixedUpdateState() {
         // Allow for player movement here later
-        player.defaultState.FixedUpdateState();
+        //player.defaultState.FixedUpdateState();
     }
 }

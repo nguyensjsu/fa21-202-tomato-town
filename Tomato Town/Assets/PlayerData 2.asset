@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a26ce811e46bd4aa9ba6e3b207db6d, type: 3}
-  m_Name: PlayerData
+  m_Name: PlayerData 2
   m_EditorClassIdentifier: 
   hp: 3
   walkSpeed: 10
@@ -20,17 +20,17 @@ MonoBehaviour:
   maxFallSpeed: 20
   jumpHold: 10
   basic:
-    animationTrigger: attack
+    animationTrigger: 
     hitboxes:
-    - pos1: {x: 2.6, y: -0.2}
-      pos2: {x: -0.5, y: 1.5}
+    - pos1: {x: 2, y: -2}
+      pos2: {x: -2, y: 2}
     startup: 0
-    linger: 5
-    endlag: 25
+    linger: 15
+    endlag: 90
     power: 0
     mpCost: 0
     knockback: {x: 0, y: 0}
-    pushback: {x: 0, y: 0}
+    pushback: {x: 0, y: 10}
   downAttack:
     animationTrigger: 
     hitboxes:
