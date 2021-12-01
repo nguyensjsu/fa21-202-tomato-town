@@ -31,7 +31,6 @@ public class PlayerHUD : MonoBehaviour
     }
 
     public void UpdateMinions() {
-        print(GameData.minionCount);
         minions.text = GameData.minionCount.ToString();
     }
 }

@@ -14,8 +14,6 @@ public class MinionSpawner : MonoBehaviour
     }
 
     void SpawnMinion() {
-        //var pos = minionPrefab.transform.position;
-        print("poopy");
         var xVal = Random.Range(minX, maxX);
         var pos = new Vector2(xVal,spawnHeight);
         var m = Instantiate(minionPrefab,pos,Quaternion.identity);
