@@ -15,12 +15,6 @@ public class Timer
 
     public void AdvanceTime() {
         _curTime += Time.deltaTime;
-        return;
-
-        // Prevent frames from being skipped
-        const float maxTime = 1 / 60f;
-        if(Time.deltaTime > maxTime) _curTime += maxTime;
-        else _curTime += Time.deltaTime;
     }
 
     public bool WaitForXFrames(int x) {

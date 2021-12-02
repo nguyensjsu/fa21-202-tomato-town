@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TestDummy : EnemyAgent
 {
-    private TestDefaultEnemyState defaultState;
-
     protected new void Start() {
         base.Start();
         defaultState = new TestDefaultEnemyState(this);
