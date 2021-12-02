@@ -981,8 +981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159.32085, y: -182}
-  m_SizeDelta: {x: 457.836, y: 76.56}
+  m_AnchoredPosition: {x: -159.32085, y: -177.60004}
+  m_SizeDelta: {x: 457.836, y: 85.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549912155
 MonoBehaviour:
@@ -1005,7 +1005,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Controls:\nMove = Arrow Keys or WASD\nJump = Spacebar (hold down \nto
-    drop through platform instead)\nGrab/Toss Skull = J or C Keys"
+    drop through platform instead)\nAttack = J or C Keys\nGrab/Toss Skull = K or
+    X Keys"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 08973e12c090c274f882cc360ed77e71, type: 2}
   m_sharedMaterial: {fileID: -6389249709316799903, guid: 08973e12c090c274f882cc360ed77e71, type: 2}
