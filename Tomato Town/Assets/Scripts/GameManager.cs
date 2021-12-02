@@ -27,7 +27,11 @@ public class GameManager : MonoBehaviour, IGameComponent
         spawner = GetComponent<IEnemySpawnStrategy>();
         // Define the spawner if one isn't already set
         if(spawner == null) {
-            spawner = new ExampleSpawn();
+            switch(GameData.level) {
+                default: spawner = new EndGameSpawn(); break;
+            }
+            //spawner = new ExampleSpawn();
+            //spawner = new EndGameSpawn();
         }
         spawner.InitEnemySpawns(skeletonPrefab, flyguyPrefab);
     }
@@ -102,3 +106,4 @@ public class GameManager : MonoBehaviour, IGameComponent
         if(enemyAgents.Contains(b)) enemyAgents.Remove(b);
     }
 }
+
