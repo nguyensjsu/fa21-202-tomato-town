@@ -23,7 +23,6 @@ public abstract class AttackBaseState : IAgentState
         hasHitTarget = false;
         atkTimer.ResetTimer();
         user._animator.SetTrigger(curAttack.animationTrigger);
-        Debug.Log(curAttack.animationTrigger);
     }
 
     public void ExitState() {
