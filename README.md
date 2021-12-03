@@ -1,7 +1,7 @@
 # Tomato Town (Replace with your Team Name and Journal)
 
 
-<img src="images/architecture.png" width="900">
+<img src="images/architecture.png" width="1100">
 
 
 Background Art:
