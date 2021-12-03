@@ -22,6 +22,9 @@ In Unity, it is more efficient if there is one class calling the Update() and Fi
 The State Pattern was used to organize the behaviors of the main agents of the game; the player, minions, and enemies. This organization allowed for more modularization and made adding additional mechanics cleaner. Below are all the classes that implement the State Pattern:
 <br><br><img src="images/state-pattern.png" width="500">
 
+The Player class is slightly different in the other agent classes in that it uses the State Pattern twice. It has a main state that controls the action of the player that doesn't involve the minion. It then also has a substate that determines if the player can grab or throw the minion. This was done since we wanted the minion interaction to be seperate with the rest of the player functionality. 
+<br><img src="images/player-state.png" width="500">
+
 <h3>Strategy Pattern</h3> 
 The Strategy Pattern is used to decide how enemies should be spawned in each level of the game. This allowed us to set the difficulty of each level. Adding additional levels in future updates would also be easy as we'd just have to make a new class that implements the pattern.
 <br><br><img src="images/strategy-pattern.png" width="500">
