@@ -25,8 +25,13 @@ The State Pattern was used to organize the behaviors of the main agents of the g
 The Player class is slightly different in the other agent classes in that it uses the State Pattern twice. It has a main state that controls the action of the player that doesn't involve the minion. It then also has a substate that determines if the player can grab or throw the minion. This was done since we wanted the minion interaction to be seperate with the rest of the player functionality. 
 <br><br><img src="images/player-state.png" width="500">
 
-<br><br><img src="images/minion-state.png" width="500">
+The Minion class state system has only three state; the idle, item, and thrown states. Idle state has the minion stay stationary and avoids interactions with enemies. Item state forces the minion the follow along the player. In the Thrown state, the minion tries to detect hit collision with enemies and attacks them if it does.
+<br><br><img src="images/minion-state.PNG" width="500">
+
+The Skeleton class state system stays in the idle state until the player moves close enough, which then causes the system to switch into the attack state. The KO state is only entered when the skeleton dies.
 <br><br><img src="images/skeleton-state.png" width="500">
+
+The FlyGuy class has a very simple state system where it only changes when it dies.
 <br><br><img src="images/flyguy-state.png" width="500">
 
 <h3>Strategy Pattern</h3> 
