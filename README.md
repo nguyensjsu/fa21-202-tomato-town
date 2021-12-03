@@ -13,6 +13,8 @@ Minion Art:
 https://pixelfrog-assets.itch.io/pixel-adventure-2<br>
 Skeleton Art:
 https://jesse-m.itch.io/skeleton-pack<br>
+Fly Guy Art:
+https://luizmelo.itch.io/monsters-creatures-fantasy<br>
 UI Art:
 https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack<br>
 Music:
