@@ -3,6 +3,7 @@
 
 <img src="images/architecture.png" width="1100">
 
+# Asset Credits
 
 Background Art:
 https://quintino-pixels.itch.io/wasteland-plataformer-tileset
@@ -10,14 +11,14 @@ https://quintino-pixels.itch.io/wasteland-plataformer-tileset
 Character Art:
 https://clembod.itch.io/warrior-free-animation-set
 
-Skeleton Art:
-https://jesse-m.itch.io/skeleton-pack
-
 Minion Art:
 https://pixelfrog-assets.itch.io/pixel-adventure-2
 
+Skeleton Art:
+https://jesse-m.itch.io/skeleton-pack
 
+UI Art:
+https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack
 
-Other:
-https://ansimuz.itch.io/gothicvania-patreon-collection
-https://luizmelo.itch.io/monsters-creatures-fantasy
+Music:
+https://svl.itch.io/rpg-music-pack-svl
