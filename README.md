@@ -1,4 +1,4 @@
-# Tomato Town (Replace with your Team Name and Journal)
+# Tomato Town
 
 # Team Journals
 Hardwin Bui: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md<br>
