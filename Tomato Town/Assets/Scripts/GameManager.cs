@@ -28,10 +28,13 @@ public class GameManager : MonoBehaviour, IGameComponent
         // Define the spawner if one isn't already set
         if(spawner == null) {
             switch(GameData.level) {
-                default: spawner = new EndGameSpawn(); break;
+                case 1:     spawner = new Level1Spawn(); break;
+                case 2:     spawner = new Level2Spawn(); break;
+                case 3:     spawner = new Level3Spawn(); break;
+                case 4:     spawner = new Level4Spawn(); break;
+                case 5:     spawner = new Level5Spawn(); break;
+                default:    spawner = new EndGameSpawn(); break;
             }
-            //spawner = new ExampleSpawn();
-            //spawner = new EndGameSpawn();
         }
         spawner.InitEnemySpawns(skeletonPrefab, flyguyPrefab);
     }

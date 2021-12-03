@@ -27,7 +27,7 @@ public abstract class BaseSpawner : MonoBehaviour, IEnemySpawnStrategy
         else SpawnSkeleton(skydrop);
     }
 
-    private void SpawnFlyGuy() {
+    public void SpawnFlyGuy() {
         var mob = flyguyPrefab;
         var pos = mob.transform.position;
         bool isLeft = Random.Range(0,2) == 0;
@@ -41,7 +41,7 @@ public abstract class BaseSpawner : MonoBehaviour, IEnemySpawnStrategy
         spawnCount += 1;
     }
 
-    private void SpawnSkeleton(bool skydrop = false) {
+    public void SpawnSkeleton(bool skydrop = false) {
         var mob = skelePrefab;
         var pos = mob.transform.position;
         bool isLeft = Random.Range(0,2) == 0;
