@@ -24,9 +24,9 @@ MonoBehaviour:
     hitboxes:
     - pos1: {x: 2.6, y: -0.2}
       pos2: {x: -0.5, y: 1.5}
-    startup: 0
+    startup: 5
     linger: 5
-    endlag: 25
+    endlag: 20
     power: 0
     mpCost: 0
     knockback: {x: 0, y: 0}
