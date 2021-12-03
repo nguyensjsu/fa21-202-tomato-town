@@ -1,5 +1,10 @@
 # Tomato Town (Replace with your Team Name and Journal)
 
+# Team Journals
+https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md
+https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/KennethProjectJournal.md
+
+# Diagram
 
 <img src="images/class-diagram.png" width="1100">
 
