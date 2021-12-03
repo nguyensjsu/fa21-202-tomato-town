@@ -1,7 +1,12 @@
 # Tomato Town (Replace with your Team Name and Journal)
 
+# Team Journals
+Hardwin Bui: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md<br>
+Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/KennethProjectJournal.md
 
-<img src="images/architecture.png" width="1100">
+# Diagram
+
+<img src="images/class-diagram.png" width="1100">
 
 # Asset Credits
 
