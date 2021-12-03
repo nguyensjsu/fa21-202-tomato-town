@@ -1,7 +1,7 @@
 # Tomato Town (Replace with your Team Name and Journal)
 
 
-<img src="images/architecture.png" width="1100">
+<img src="images/class-diagram.png" width="1100">
 
 # Asset Credits
 
