@@ -1,5 +1,9 @@
 # Tomato Town (Replace with your Team Name and Journal)
 
+
+<img src="images/architecture.png" width="700">
+
+
 Background Art:
 https://quintino-pixels.itch.io/wasteland-plataformer-tileset
 
