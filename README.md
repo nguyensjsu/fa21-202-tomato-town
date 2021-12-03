@@ -1,8 +1,8 @@
 # Tomato Town (Replace with your Team Name and Journal)
 
 # Team Journals
-https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md
-https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/KennethProjectJournal.md
+Hardwin Bui: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md<br>
+Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/KennethProjectJournal.md
 
 # Diagram
 
