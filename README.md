@@ -4,9 +4,11 @@
 Hardwin Bui: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md<br>
 Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/KennethProjectJournal.md
 
-# Diagrams
+# Class Diagram
 
 <img src="images/class-diagram.png" width="1100">
+
+# State Diagram
 
 <img src="images/game-state-diagram.png" width="500">
 
