@@ -15,11 +15,11 @@ Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/Kenne
 # Key Design Features
 
 <h3>Composite Pattern</h3> 
-In Unity, it is more efficient if there is one class calling the Update() and FixUpdate() functions. With this in mind, we used the Composite Pattern to setup the architecture in a way so that one main class, the GameManager.cs singleton class, that takes in all classes that share its Composite pattern. The GameManager class will then call Update and FixUpdate for each of its child classes.
+In Unity, it is more efficient if there is one class calling the Update() and FixUpdate() functions. With this in mind, we used the Composite Pattern to setup the architecture in a way so that one main class, the GameManager.cs singleton class, that takes in all classes that share its Composite Pattern. The GameManager class will then call Update and FixUpdate for each of its child classes.
 <br><br><img src="images/composite-pattern.png" width="500">
 
 <h3>State Pattern</h3> 
-
+The State Pattern was used to organize the behaviors of the main agents of the game; the player, minions, and enemies. This organization allowed for more modularization and made adding additional mechanics cleaner. Below are all the classes that implement the State Pattern:
 <br><br><img src="images/state-pattern.png" width="500">
 
 <h3>Strategy Pattern</h3> 
