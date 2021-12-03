@@ -19,7 +19,7 @@ Composite Pattern
 State Pattern
 
 <h3>Strategy Pattern</h3>
-<br>The Strategy Pattern is used to decide how enemies should be spawned in each level of the game. This allowed us to set the difficulty of each level. Adding additional levels in potential future updates would also be easy as we'd just have to make a new class that implements the pattern.
+The Strategy Pattern is used to decide how enemies should be spawned in each level of the game. This allowed us to set the difficulty of each level. Adding additional levels in future updates would also be easy as we'd just have to make a new class that implements the pattern.
 <br><img src="images/strategy-pattern.png" width="500">
 
 # Asset Credits
