@@ -8,7 +8,7 @@ Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/Kenne
 
 <img src="images/class-diagram.png" width="1100">
 
-<img src="images/game-state-diagram.png" width="700">
+<img src="images/game-state-diagram.png" width="500">
 
 # Asset Credits
 
