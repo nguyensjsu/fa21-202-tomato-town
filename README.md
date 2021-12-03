@@ -14,11 +14,16 @@ Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/Kenne
 
 # Key Design Features
 
-Composite Pattern
+<h3>Composite Pattern</h3> 
 
-State Pattern
+<br><br><img src="images/composite-pattern.png" width="500">
 
-<h3>Strategy Pattern</h3> The Strategy Pattern is used to decide how enemies should be spawned in each level of the game. This allowed us to set the difficulty of each level. Adding additional levels in future updates would also be easy as we'd just have to make a new class that implements the pattern.
+<h3>State Pattern</h3> 
+
+<br><br><img src="images/state-pattern.png" width="500">
+
+<h3>Strategy Pattern</h3> 
+The Strategy Pattern is used to decide how enemies should be spawned in each level of the game. This allowed us to set the difficulty of each level. Adding additional levels in future updates would also be easy as we'd just have to make a new class that implements the pattern.
 <br><br><img src="images/strategy-pattern.png" width="500">
 
 # Asset Credits
