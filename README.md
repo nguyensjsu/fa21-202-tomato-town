@@ -1,5 +1,5 @@
 # Tomato Town
-The game we created is called Pit Escape. It is an action-packed endless beat-em-up-esque game. One of the main attacks is a single ball that you can throw around. You must pick up the ball to use it again.  
+The game we created is called Pit Escape. It is an action-packed endless beat-em-up-esque game. One of the main attacks is a single ball that you can throw around. This ball is known as a minion and you must pick it up to use it again.  
 
 # Video Links
 User Story Video: https://www.youtube.com/watch?v=Bqckl0iieC8<br>
