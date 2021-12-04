@@ -9,6 +9,10 @@ Demo Video: https://www.youtube.com/watch?v=7kxChdzUHMY
 Hardwin Bui: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/HardwinProjectJournal.md<br>
 Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/KennethProjectJournal.md
 
+# Wireframe
+
+<img src="images/ui.png" width="500">
+
 # Class Diagram
 
 <img src="images/class-diagram.png" width="1100">
