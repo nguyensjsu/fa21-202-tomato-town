@@ -11,7 +11,7 @@ Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/Kenne
 
 # Wireframe
 
-<img src="images/ui.png" width="500">
+<img src="images/wireframe.png" width="500">
 
 # Class Diagram
 
