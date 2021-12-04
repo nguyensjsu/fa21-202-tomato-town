@@ -15,7 +15,7 @@ Kenneth Yang: https://github.com/nguyensjsu/fa21-202-tomato-town/blob/main/Kenne
 
 # Class Diagram
 All classes are dependent on the GameManager class.<br>
-Player, Minion, Skeleton, and FlyGuy classes are dependent on each of the IAgentState classes respectively.
+Player, Minion, Skeleton, and FlyGuy classes are dependent on each of the IAgentState classes respectively.<br>
 <img src="images/class-diagram.png" width="1100">
 
 # Game State Diagram
